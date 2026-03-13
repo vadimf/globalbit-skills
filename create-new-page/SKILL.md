@@ -136,7 +136,6 @@ Use `read_url_content` on 2–3 top competitor pages for the same service. Look 
 
 Good competitor pages to check for software companies:
 
-- surf.ru (Russian market leader — good structure reference)
 - miquido.com
 - cleveroad.com
 - netguru.com

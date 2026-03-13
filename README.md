@@ -40,10 +40,6 @@ Skills are structured instruction sets that give AI coding agents domain-specifi
 | **[case-studies](./case-studies)** | Create, rewrite, and strategically improve case study pages |
 | **[humanizer](./humanizer)** | Remove signs of AI-generated writing to make text sound natural and human-written |
 
-### DevOps
-| Skill | Description |
-|-------|-------------|
-| **[deploy](./deploy)** | Deploy to Firebase Hosting (static pages) and Firebase Functions |
 
 ## 🛠️ Usage
 

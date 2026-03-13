@@ -76,7 +76,7 @@ If the user wants the skill installed in their workspace for future use:
 | **Accessibility** | accessibility, accessibility-compliance |
 | **SEO & Analytics** | seo-audit, google-search-console |
 | **Content & Copy** | copywriting, blog-articles, case-studies, humanizer |
-| **DevOps** | deploy |
+
 
 ## Notes
 
