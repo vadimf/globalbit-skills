@@ -39,10 +39,11 @@ Skill for creating and editing Google Docs the Globalbit way. Handles authentica
 | Template Document ID | `1P2BhWQGGxeWdCYhdFP8uaUd7BqilgwKAYXnvEzfX57U` |
 | Shared Drive ID | `0AIoPXOi3tfaaUk9PVA` |
 | Proposals Folder ID | `14t2WcrT_bhRO6eu_YX8dcaY9ys5iXQbc` |
-| OAuth credentials | `~/.config/gws/credentials.json` → `tokens.refresh_token` |
-| Client secret | `~/.config/gws/client_secret.json` → `installed.client_id`, `installed.client_secret` |
+| **OAuth credentials (.env)** | `GWS_CLIENT_ID`, `GWS_CLIENT_SECRET` — loaded from `.env` in project root |
+| OAuth refresh token | `~/.config/gws/credentials.json` → `tokens.refresh_token` |
+| Client secret (fallback) | `~/.config/gws/client_secret.json` → `installed.client_id`, `installed.client_secret` |
 | Cached access token | `~/.config/gws/cached_token.json` → `access_token` |
-| Auth wrapper script | `scripts/gws-auth.sh` |
+| Auth wrapper script | `scripts/gws-auth.sh` (loads `.env` automatically) |
 
 ---
 

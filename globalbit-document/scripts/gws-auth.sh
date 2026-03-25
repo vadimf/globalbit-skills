@@ -2,11 +2,34 @@
 # gws-auth — Wrapper for gws CLI that auto-refreshes OAuth token
 # Usage: gws-auth <gws args...>
 # Uses the same OAuth client as google-docs-mcp
+# Credentials are loaded from .env file (project root or ~/.env)
 
-# ⚠️ Set these from your Google Cloud Console OAuth credentials
-# or read from environment variables
-CLIENT_ID="${GWS_CLIENT_ID:?Set GWS_CLIENT_ID environment variable}"
-CLIENT_SECRET="${GWS_CLIENT_SECRET:?Set GWS_CLIENT_SECRET environment variable}"
+# Find and load .env
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE=""
+# Check project root (two levels up from scripts/)
+if [ -f "$SCRIPT_DIR/../../.env" ]; then
+  ENV_FILE="$SCRIPT_DIR/../../.env"
+elif [ -f "$SCRIPT_DIR/../../../.env" ]; then
+  ENV_FILE="$SCRIPT_DIR/../../../.env"
+elif [ -f "$HOME/.env" ]; then
+  ENV_FILE="$HOME/.env"
+fi
+
+if [ -z "$ENV_FILE" ] && [ -z "$GWS_CLIENT_ID" ]; then
+  echo "Error: No .env file found and GWS_CLIENT_ID not set" >&2
+  echo "Create a .env with GWS_CLIENT_ID and GWS_CLIENT_SECRET" >&2
+  exit 1
+fi
+
+if [ -n "$ENV_FILE" ]; then
+  set -a
+  source "$ENV_FILE"
+  set +a
+fi
+
+CLIENT_ID="${GWS_CLIENT_ID:?Set GWS_CLIENT_ID in .env}"
+CLIENT_SECRET="${GWS_CLIENT_SECRET:?Set GWS_CLIENT_SECRET in .env}"
 TOKEN_FILE="$HOME/token.json"
 CACHE_FILE="$HOME/.config/gws/cached_token.json"
 
