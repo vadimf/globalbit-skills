@@ -214,7 +214,7 @@ Present as 3–6 numbered goals:
 ...
 ```
 
-> ⚠️ **NO What/Why/Deliverable bullet format.** Components are narrative paragraphs. Deliverables go in the Deliverables table (§7 or §8).
+> ⚠️ **NO What/Why/Deliverable bullet format.** Components are narrative paragraphs. Deliverables go in the Deliverables table (Section 7 or Section 8).
 
 ### Rules
 
@@ -284,6 +284,26 @@ Present as 3–6 numbered goals:
 - Highlight relevant client portfolio from the same industry
 - Mention AI-First positioning if relevant
 - Keep to approximately 1 page
+
+### Competitive Positioning (Implicit — Never Name Competitors)
+
+> The Israeli enterprise buyer is mentally comparing Globalbit against Matrix, Ness, Malam-Team, Aman, Comm-IT, Tikal, Naya, and others — even if no one says it out loud. The "Why Globalbit" bullets must **preempt that comparison** without naming names. Every bullet implicitly defeats one type of competitor.
+
+Use the Implicit Positioning Lever Table to choose 3-4 levers per proposal (the ones that matter most to this client's persona):
+
+| Competitor archetype the buyer is mentally comparing | Implicit lever that defeats it (use as a "Why Globalbit" bullet) |
+|---|---|
+| Big body-shops (hundreds of consultants, layered account managers) | "**Senior-only team with no junior dilution**" — every developer assigned has 5+ years in the discipline; no "training on your account" |
+| Big body-shops with offshore delivery | "**100% Israel-based delivery**" — every developer works from Israel, in your timezone, in Hebrew when needed |
+| Big body-shops with account-management layer | "**Direct CEO/CTO involvement**" — Sasha Feldman is personally accountable. No "I'll have to check with the team" |
+| Slow-moving consultancies (3-month spec phases, no working code) | "**Working software in weeks, not months**" — sprint demos every 2 weeks, you see real progress from week 2 |
+| Boutique freelancer collectives | "**Full E2E ownership**" — one contract, one accountable party, one continuous team from spec through maintenance |
+| Cheap commodity providers | "**Premium quality, measured outcomes**" — products serving 200M+ users, not a CV factory |
+| AI-curious general dev shops | "**AI-First with production track record**" — RAG systems, AI agents, and Generative AI deployed in regulated environments — not "we can also do AI" |
+| Vendors with vague exit terms | "**No vendor lock-in, ever**" — full source code ownership, documented exit plan, knowledge transfer included |
+| Foreign vendors / non-Israeli houses | "**Native Israeli regulatory fluency**" — we know 357, נב"ת, רשות שוק ההון, חוק הגנת הפרטיות 2024, accessibility standards — without ramp-up |
+
+**Implementation rule:** Pick 3-4 levers most relevant to the client's archetype. Phrase each as a confident bullet under "Why Globalbit for This Project". Never name a competitor. Never write "unlike X, we...". The buyer fills in the blank.
 
 ### Quality Gate
 
@@ -392,8 +412,9 @@ Globalbit applies a multi-layered QA process:
 - `resources/hourly-rates.md` — team compositions by service type
 - Proposed Solution — what skills are needed
 - Project scope
+- Named Team availability (ask the user for actual senior names if deal > 200K)
 
-### Structure
+### Structure (Default — Anonymous Roles)
 
 ```
 | Role | Responsibility |
@@ -401,18 +422,43 @@ Globalbit applies a multi-layered QA process:
 | {{ROLE}} | {{RESPONSIBILITY}} |
 ```
 
+### Structure (Enhanced — Named Team, for deals > 200K NIS)
+
+For mid-large enterprise deals, replace the anonymous role table with a named team table:
+
+```
+| Role | Name | Allocation | Background |
+|------|------|------------|-----------|
+| Tech Lead | מאיר כהן (Meir Cohen) | Dedicated 80% | 12 yrs full-stack, ex-IBI lead, LinkedIn: ... |
+| Senior Engineer | ... | Dedicated 100% | ... |
+| CTO Oversight | סשה פלדמן (Sasha Feldman) | 4-6 hrs/week | CEO/CTO of Globalbit |
+```
+
+Add the following commitment paragraph beneath the table:
+
+**Hebrew:**
+> "אנשי הצוות הליבתיים המופיעים לעיל מוקצים לפרויקט זה ישירות. גלובלביט לא תחליף איש צוות ליבתי במהלך הפרויקט ללא אישור מראש מהלקוח. במקרה של עזיבת עובד או היעדרות ממושכת, גלובלביט תספק החלפה ברמה שווה או גבוהה יותר תוך 5 ימי עבודה."
+
+**English:**
+> "The core team members listed above are directly assigned to this project. Globalbit will not replace a core team member without prior client approval. In case of departure or extended absence, an equal or higher caliber replacement will be provided within 5 business days."
+
 ### Rules
 
 - Include only roles relevant to this project
 - Responsibilities should be project-specific, not generic
 - Use team compositions from hourly-rates.md as a starting point
-- Name team members only if assigned
+- **For deals > 200K NIS**: ask the user for actual names (Tech Lead minimum) and use the Named Team structure. Anonymous "Senior Developer" reads as a body shop. Named team with allocation % reads as a partnership.
+- LinkedIn references are powerful but only include them if the team member has consented (default: ask the user)
+- Do NOT name junior roles — only senior, lead, and oversight roles get names
+- The "no-swap without approval" commitment must accompany any named team
 
 ### Quality Gate
 
 - [ ] All required skills for the solution are covered
 - [ ] Responsibilities are specific to this project
 - [ ] Rates exist for all roles in hourly-rates.md
+- [ ] For deals > 200K: at least the Tech Lead is named, with allocation % shown
+- [ ] Named team is accompanied by the no-swap commitment paragraph
 
 ---
 
@@ -594,3 +640,66 @@ Use the boilerplate risk assessment template (Severity × Probability matrix) bu
 
 - Source: `resources/boilerplate-sections-{en|he}.md` → General Terms
 - Insert **verbatim** — no modifications
+
+---
+
+## Optional Sections (Insert When Triggered)
+
+### Performance Commitments & SLA
+
+- Source: `resources/boilerplate-sections-{en|he}.md` → Performance Commitments & SLA
+- **Trigger**: Deal value > NIS 200K, mid-large enterprise client, or any explicit client question about SLA / continuity / IP
+- Insert immediately before Commercial Terms (Section 13) or as a sub-section within Commercial Terms
+
+### Appendix A: Security & Compliance
+
+- Source: `resources/security-compliance-annex.md` (HE or EN per language)
+- **Trigger**: ANY enterprise client (banking, insurance, healthcare, government, regulated industries) OR any deal > NIS 200K
+- Insert as the LAST appendix, after General Terms, before signatures
+- Title in HE: "נספח א׳ - אבטחת מידע ותאימות רגולטורית"
+- Title in EN: "Appendix A - Information Security & Regulatory Compliance"
+- Customize the regulatory bullet list to the client's specific sector — remove non-applicable rows
+
+---
+
+## One-Page Executive Brief (Companion Document)
+
+> For deals > NIS 500K, generate a separate one-page brief alongside the full proposal.
+
+### When to produce
+
+- Deal value > NIS 500K
+- Multi-stakeholder buying committee (CEO + CFO + CIO involved)
+- Recipient asks for "something to forward to the CEO"
+
+### Structure (single page only)
+
+```
+HEADER: Project name + one-sentence goal
+"AI Knowledge Hub for Menora Mivtachim Investment Division - replacing scattered file storage with a queryable knowledge platform that reduces analyst search time by 60-80%."
+
+COMMERCIAL SNAPSHOT (3 lines):
+- Total: NIS XXX,XXX (T&M, Net + 45)
+- Timeline: X weeks
+- Effort: ~XXX hours
+
+KEY MILESTONES (3-4 bullets):
+- Week 1: Discovery + Azure infrastructure
+- Weeks 2-3: Core development (RAG + chat UI)
+- Week 4: QA, security hardening, go-live
+
+WHY GLOBALBIT (3 bullets, the strongest from the full proposal):
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+NEXT STEP: Single-line CTA
+"We propose a 30-minute alignment call to confirm scope. Available [day]/[day] this week."
+```
+
+### Output format
+
+- Same Globalbit-branded Google Doc template
+- Title: "[Project Name] - Executive Brief"
+- File ID format: `GB-2026-XXXX-001-BRIEF`
+- Stays as a single page, even if it requires tighter language

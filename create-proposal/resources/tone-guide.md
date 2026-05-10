@@ -153,3 +153,15 @@ Always end with a strong, specific next step:
 - Numbers and currencies: use ₪ or ש״ח / ש"ח
 - Dates: DD/MM/YYYY format
 - The word "גלובלביט" (not "Globalbit") in Hebrew proposals, though "Globalbit" in headings is acceptable
+
+---
+
+## Israeli Market Norms
+
+Israeli buyers expect transparency in pricing and assume room for negotiation. Tone matters as much as content:
+
+- **Avoid rigid penalty language** — never write "any changes will incur additional fees" or similar. Frame scope changes as collaborative: "Scope modifications will be reviewed and estimated accordingly" / "שינויים ייבחנו ויתומחרו בהתאם".
+- **Direct and confident, not promotional** — Israeli C-level readers detect and dismiss marketing fluff fast. Cut superlatives ("world-class", "cutting-edge"). State capabilities and let them speak.
+- **Transparency in commercials** — show hourly rates, hours estimate, and total. Don't hide the math. Hidden pricing reads as untrustworthy.
+- **Negotiation space is normal** — assume the proposal is a starting point. Leave at least one element with explicit flexibility (T&M instead of fixed, hours bank rollover, payment terms).
+- **Skip credentials theater** — one or two sharply relevant case studies beat a logo wall. If a referenced client doesn't directly parallel the prospect's industry or problem, leave them out of Solution-area sections (logo lists belong in About Globalbit only).

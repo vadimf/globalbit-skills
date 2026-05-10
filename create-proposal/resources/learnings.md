@@ -37,6 +37,9 @@
 - **QA as a detailed sub-section** — list QA layers (continuous → sprint → regression → UAT) instead of using Agile ceremony names. This signals professionalism better than "Definition of Done". (learned from Neemanim post-analysis, 2026-03-16)
 - **Added Value: headline + mini-explanation** — each value item has a bold headline that stands alone (CEO reads only headlines) followed by a 1-2 sentence explanation. Don't write long bullets. (learned from Neemanim post-analysis, 2026-03-16)
 - **AI Disclaimer in assumptions** — when the proposal includes AI/ML, add: "The solution uses AI models... which are statistical by nature and may occasionally produce imperfect results; human judgment remains necessary." Protects legally. (learned from Neemanim post-analysis, 2026-03-16)
+- **Case studies sparingly but powerfully** — reference past clients only when the parallel is direct (same industry, same problem, same scale). One sharp parallel beats three loose ones. Generic logo lists belong in About Globalbit, never in Solution, Background, or Added Value. **Why:** Israeli C-level readers dismiss marketing-style credential walls fast; a single relevant case earns trust, a logo wall reads as filler. **How to apply:** before naming a past client in any custom section, ask "does this prospect's CIO actually care that we worked with this company?" — if no, cut it. (learned from prompt-review, 2026-05-07)
+- **90-Second Scan Test** — every proposal must pass the test: if the reader looks ONLY at the title, all H1 headings, all bold text, and all bullet headlines (no paragraphs, no body text), do they understand: (1) what we are building, (2) total cost, (3) total timeline, (4) why us? **Why:** the CEO/CFO of a mid-large enterprise opens the doc, scans for 60-90 seconds, and decides whether to delegate it to the team for full review or to dismiss it. If headlines alone do not tell the story, the proposal dies in the inbox. **How to apply:** before submitting, do a "headlines-only read" of the doc — strip paragraphs mentally and check whether the story still holds. Tighten any section where the bold/H1 alone doesn't carry the message. (learned from competitive-research, 2026-05-07)
+- **One-Page Executive Brief (separate doc, deals > 500K)** — for any proposal above NIS 500K, deliver a **separate one-page brief** alongside the full proposal. The brief is for the CEO/CFO who will not read the full document but will glance at this single page before approving. Includes: project name + goal in one sentence, total cost, timeline, key milestones (3-4 bullets), what makes this proposal different (3 bullets), next step. Branded but minimal. **Why:** the buying committee in mid-large Israeli enterprises is multi-stakeholder; a one-page brief gives the Recipient a tool to forward upward without forcing the Decision Maker to read 30+ pages. **How to apply:** generate this as a separate doc (Google Doc) right after finishing the full proposal. Use the same template but with only an Executive Summary + Commercial Snapshot section. (learned from competitive-research, 2026-05-07)
 
 ---
 
@@ -62,56 +65,56 @@
 
 > Refinements for specific sections, organized by section number.
 
-### §1 Executive Summary
+### Section 1 Executive Summary
 - **[PATTERN] Structure: paragraphs → bullets → confidence close** — 2-3 narrative paragraphs + 3-4 takeaway bullets (●) at the end. No table. Budget/timeline as inline text. End with a vision sentence about long-term value, not data. (learned from Neemanim post-analysis, 2026-03-16)
 - **[PATTERN] Takeaway bullets** — the CEO will read only these 4 bullets and decide. They must summarize: (1) what we build, (2) key capability, (3) methodology/timeline, (4) strategic outcome. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §2 Background & Context
+### Section 2 Background & Context
 - **[CORRECTION] Always identify personas and use cases per brand/product** — when a project involves multiple brands with different audiences, map each brand's business model (B2B, B2C, B2B2C) and specific personas with their use cases. Don't describe brands generically. (learned from Neemanim, 2026-03-09)
 - **[CORRECTION] Don't assume personal area / authenticated sections** — unless explicitly confirmed, website projects are public-facing only. Don't include "login to personal area" or "view my policies" in personas. Ask first. (learned from Neemanim, 2026-03-09)
 - **[PATTERN] UTM-based personalization** — for B2C / lead-gen sites, consider personalization based on traffic source (ad campaign, email, organic). Show relevant content immediately based on where the visitor came from. Example: car insurance ad → car insurance content front and center with relevant offers. This is a strong differentiator in proposals. (learned from Neemanim, 2026-03-09)
 - **[PATTERN] 3 paragraphs max** — (1) what the project is, (2) why it matters now (strategic context), (3) what the challenge is. Personas and use-cases do NOT go here — they belong in the discovery phase. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §3 Business Goals
+### Section 3 Business Goals
 - **[CORRECTION] Don't default to "lead generation" as the website's business goal** — always ask about the client's actual sales model before writing business goals. Websites serve different purposes for different businesses: lead gen, validation/credibility, retention, e-commerce, self-service, etc. Ask: "How do your customers find you and buy from you?" (learned from Neemanim, 2026-03-09)
 - **[PATTERN] Add Recipient-specific goals** — when the Recipient is a marketing team, add: "גמישות תפעולית לצוות השיווק" (operational flexibility) and "Speed to Campaign" (ability to launch campaigns independently). For IT: add "reduced vendor dependency" and "maintainability". These goals make the Recipient feel the proposal is for them. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §4 Project Goals
+### Section 4 Project Goals
 - **[PATTERN] Consider merging into Business Goals** — in the final proposal, Project Goals were absorbed into Business Goals. This reduces redundancy and makes the document more concise. If the project is complex, keep them separate. If straightforward, merge. Decision should be per-project. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §5 Proposed Solution
-- **[CRITICAL] Narrative format, not What/Why/Deliverable** — each component is a narrative paragraph that flows naturally and ends with "המשמעות העסקית:" / "The business impact:". Deliverables go in a separate table (§8 Deliverables). (learned from Neemanim post-analysis, 2026-03-16)
+### Section 5 Proposed Solution
+- **[CRITICAL] Narrative format, not What/Why/Deliverable** — each component is a narrative paragraph that flows naturally and ends with "המשמעות העסקית:" / "The business impact:". Deliverables go in a separate table (Section 8 Deliverables). (learned from Neemanim post-analysis, 2026-03-16)
 - **[PATTERN] Open with "הגישה שלנו" / "Our Approach"** — before any components, add a strategic sub-section explaining Globalbit's philosophy for this project (e.g., "Revenue Engine", "Growth Platform"). This frames the technical components in business context. (learned from Neemanim post-analysis, 2026-03-16)
 - **[PATTERN] Include QA in the solution** — QA is a component of the solution ("בדיקות ואבטחת איכות"), not a separate methodology section. List the 4 QA layers: continuous → sprint → regression → UAT. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §6 About Globalbit
+### Section 6 About Globalbit
 - **[CRITICAL] "Why Globalbit for THIS project"** — replace the generic "Why Globalbit" with project-specific reasons (5-7 bullets). Must include at least 2 bullets for the Recipient ("understands marketing, not just development") and 2 for the Decision Maker ("industry experience", "CTO oversight"). (learned from Neemanim post-analysis, 2026-03-16)
 
-### §7 Deliverables (was "Scope & Deliverables")
+### Section 7 Deliverables (was "Scope & Deliverables")
 - **[PATTERN] Separate from Scope** — Deliverables is its own section. Scope (In/Out) moves to Assumptions or is listed in Commercial Terms. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §8 Methodology → Project Phases
+### Section 8 Methodology → Project Phases
 - **[CRITICAL] No Agile ceremony names** — do NOT list Sprint Planning, Daily Standups, Retrospectives, Definition of Done. Clients don't manage dev teams. Describe phases by activities and deliverables. Mention "ספרינטים של שבועיים" once. (learned from Neemanim post-analysis, 2026-03-16)
 - **[PATTERN] Place "up to 2 review rounds" in the launch phase** — this gives the client a sense of control and sets expectations. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §9 Team Structure
+### Section 9 Team Structure
 - **[PATTERN] Consider removing as a standalone section** — Team info can be a single paragraph or sentence in About Globalbit ("senior dedicated team, CTO oversight"). A full table of roles/responsibilities is more internal-facing than client-facing. If included, keep it minimal. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §10 Timeline & Milestones
+### Section 10 Timeline & Milestones
 - **[PATTERN] Ask for commercial parameters before write** — hours, timeline, and budget are commercial decisions that need CEO input. Never default-estimate without asking. (learned from Neemanim post-analysis, 2026-03-16)
 - **[PATTERN] Merge UX and UI into one timeline row** — "עיצוב UX/UI" instead of two separate lines. Reduces visual inflation. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §11 Risk Management
+### Section 11 Risk Management
 - **[PATTERN] Optional section** — in mid-size projects (<500K), risk management can be omitted. It's the "driest" section. If included, keep to 5-7 rows. If omitted, mention risk mitigation briefly in Methodology. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §12 Added Value
+### Section 12 Added Value
 - **[PATTERN] Headline + mini-explanation format** — each bullet: bold headline that stands alone → 1-sentence explanation. The CEO reads only headlines. If he understands the value from headlines alone, the section works. (learned from Neemanim post-analysis, 2026-03-16)
 
-### §13 Commercial Terms
+### Section 13 Commercial Terms
 - **[PATTERN] AI Disclaimer** — when AI is included, add to assumptions: "הפתרון כולל שימוש במנגנוני בינה מלאכותית... מערכות אלו מבוססות על מודלים סטטיסטיים ועשויות לעיתים להפיק תוצאות שאינן מדויקות, ולכן נדרש שיקול דעת אנושי." (learned from Neemanim post-analysis, 2026-03-16)
 - **[PATTERN] Include only active roles** — don't list roles that won't be used (e.g., Junior Developer if none assigned). (learned from Neemanim post-analysis, 2026-03-16)
 
-### §14–16 Boilerplate
+### Section 14–16 Boilerplate
 - **[CORRECTION] Add "ונכסים גרפיים נוספים" to Client Commitment** — after "לוגואים" in the content responsibility clause. (learned from Neemanim post-analysis, 2026-03-16)
 - **[CORRECTION] Add "שירותי AI" to third-party services list** — in General Terms. (learned from Neemanim post-analysis, 2026-03-16)
 
@@ -125,8 +128,17 @@
 - **Tender-based B2B2C model** — corporate insurance companies (like Neemanim) often sell via tenders, not direct leads. The website's role is trust/credibility for tender evaluation and retention of existing clients' employees — NOT lead generation. Always ask about the sales model first. (learned from Neemanim, 2026-03-09)
 - **Dual-brand architecture** — insurance groups often have separate B2B2C and B2C brands with completely different website goals. Design proposals as unified projects with shared infrastructure but distinct personas and KPIs per brand. (learned from Neemanim, 2026-03-09)
 
-<!-- Example format:
-### Healthcare
+### Healthcare & Clinical AI
+- **Frame the value as "engineering discipline around the LLM, not the LLM itself"** — clinical software clients distinguish a real tool from a chatbot demo by audit trail, eval set, and protocol-driven (not model-driven) decisions. This framing also justifies the cost when clients push back asking "why so much, isn't this just a GPT wrapper?". State explicitly: "the LLM is a small part of the project; the real work is the protocol engine, the eval set, the audit infrastructure, and the safety guardrails." (learned from Schneider, 2026-05-07)
+- **Eval set is non-negotiable** in any clinical AI MVP — even a smoke-test version (10-15 cases for a moderated pilot, 30-50 for an unsupervised pilot). It is the answer to the safety/governance question every clinical committee will ask. Budget 3-5 hours of clinical lead time minimum to author with us. (learned from Schneider, 2026-05-07)
+- **Architecture conversation BEFORE pricing conversation** — walk the client through extract → resolve → phrase, protocol-as-code, hybrid deterministic+LLM resolution before any number lands on paper. Without that shared mental model, every line item reads as inflated. (learned from Schneider, 2026-05-07)
+- **MOH and clinical committees demand audit-able, versioned, replayable systems** — every recommendation must trace to (protocol_version, extractor_prompt_version, resolver_prompt_version, model_version) and have a verbatim evidence quote from the doctor's input. Mention this explicitly in the proposal. (learned from Schneider, 2026-05-07)
+- **Data residency is a near-veto issue** — pediatric mental-health data in Israel must be on Azure OpenAI EU or Israel region with no-training/no-logging contract. Flag this in Risk Management AND in the Security Annex; expect 4-8 weeks for IT/legal review on the client side and parallelize that with discovery. (learned from Schneider, 2026-05-07)
+- **Generic engine architecture = O(1) engineering, O(N) clinical authoring** — adding clinical domains scales linearly with clinician time, not engineering time. Communicate this when defending budget for multi-domain MVPs. (learned from Schneider, 2026-05-07)
+- **Hebrew clinical chat UI is real RTL work** — Hebrew clinical terminology, mixed Hebrew/English numbers, accessible RTL inputs. Budget 10+ days for the chat UI + audit sidebar minimum, not "a couple days". (learned from Schneider, 2026-05-07)
+
+<!-- Future format:
+### Other Healthcare Notes
 - Compliance section must reference MOH regulations specifically
 -->
 
@@ -156,6 +168,14 @@ _(Nothing here yet.)_
 - User prefers "we will deliver" over "we ensure delivery of" — more direct
 - Hebrew proposals: avoid overly formal legal-sounding language in methodology section
 -->
+
+---
+
+## Formatting Rules
+
+> Universal formatting rules for client-facing proposals. Apply to ALL proposals.
+
+- **Never use the Section sign character (§)** — neither in user-facing text nor in internal headings within the proposal body. Reference sections by name or number ("Section 5", "סעיף 5", or simply by the section title). The character feels legalistic and dated. (learned from Menora, 2026-05-06)
 
 ---
 
@@ -220,6 +240,35 @@ _(Nothing here yet.)_
 ## Proposal Log
 
 > One entry per proposal. Brief retrospective.
+
+### 2026-05-07/10 — Schneider Children's Medical Center — Mental Health Clinical Decision Support Platform
+- **Service type**: AI/Agentic clinical software development
+- **Language**: Hebrew
+- **Client brief**: PDF spec ("Mental Health Clinical Decision Support Platform for Pediatricians - MVP Definition & Pilot Plan") + reference clinical materials (common factors document, eating-difficulties flowchart)
+- **Deal size**: ~230K NIS, 14 weeks (10 to pilot start + 4 moderated pilot)
+- **What went well**:
+  - Architectural framing landed: "Clinical decision engine, not a chatbot" — the user explicitly liked the framing that "LLM is a small part of the project; the real work is the engineering discipline around it"
+  - Three-step pre-proposal architecture conversation built shared understanding before pricing — extractor / resolver / phraser as the generic primitives, protocol graph as the source of authority
+  - Section 9 successfully converted to anonymous role table when client preferred no named team (kept the no-swap commitment without names)
+  - Google Docs population worked end-to-end with proper RTL Hebrew, navy header tables, Rubik 11pt body
+- **What was revised**:
+  - Initial scope quote (~750K NIS) pushed back hard by client. Cut by removing pilot, then partially restored when scope clarified to include pilot + eval set at 230K
+  - Eval set scope reduced from full 50-case clinical bank to 30-40 smoke-test cases, justified by moderated pilot and 3-class semaphore output (red/yellow/green)
+  - Initial WhatsApp pushback message rejected as "lecturing" — final version led with "from our experience, the LLM is a small part" framing
+- **Key learnings**:
+  - **For clinical AI deals: the value framing is "engineering discipline around the LLM, not the LLM itself"** — clients distinguish a real clinical tool from a chatbot demo by audit, eval set, and graph-driven decisions. This is also the answer to "why does this cost so much?"
+  - **Eval set is the single non-negotiable in any clinical AI MVP** — it's the answer to ministry-of-health, internal-clinical-committee, and "is the system safe?" questions. Even a smoke-test version (~12 cases for moderated pilot) is required.
+  - **Architecture conversation BEFORE pricing conversation** — for AI deals, walk the client through the architecture (extract → resolve → phrase, protocol-as-code, hybrid resolution) before quoting. Without that shared model, every cost looks too high.
+  - **Israeli healthcare clients negotiate hard on AI scope** — be ready to defend each line item (eval set, pilot, content authoring) on its merits, with concrete safety/clinical reasoning, not just "best practice".
+  - **Anonymous role table is acceptable for >200K healthcare deals when the client requests it** — keep the no-swap commitment paragraph regardless. State that names will be confirmed at Kickoff.
+  - **Generic engine architecture = scope of clinical content authoring is the variable, not engineering** — adding domains scales as O(N) in clinician time, O(1) in our engineering time. Communicate this to set scope expectations.
+- **Google Docs output**:
+  - First two runs created partial docs (deleted) due to: (1) empty cell range in styling pass (`endIndex == startIndex` after `-1`), (2) Google rate limit (60 writes/min) on final ** stripping batch
+  - Fix #1: guard table styling with `if ce - cs > 1` before each updateTextStyle/updateParagraphStyle range
+  - Fix #2: the rate limit hit only at the very end — most of the doc was already populated. Stripping ** completed despite the error. For future runs, throttle to ~20 requests every 30 seconds in the final passes.
+  - Final working script: `/tmp/populate_schneider.py` + `/tmp/fix_bold.py`
+
+---
 
 ### 2026-03-09/10 — Ayalon Neemanim & Nechonim — Website Design & Development
 - **Service type**: UX/UI Design + Development

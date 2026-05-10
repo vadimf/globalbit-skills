@@ -107,6 +107,30 @@ Quality is ensured using a systematic multi-stage approach:
 
 ---
 
+## Performance Commitments & SLA
+
+> **When to include**: Any enterprise client proposal above NIS 200K, or whenever the client asks about SLA, performance guarantees, or staff replacement. Transforms the proposal from "development services" to "partner with skin in the game".
+
+Globalbit is committed to project success, not merely to delivering hours. Accordingly, the following commitments form an integral part of this proposal:
+
+- **Production bug response times (post go-live):**
+  - P0 (system down / data loss): Response begins within 1 hour, 24/7.
+  - P1 (major functionality impaired): Response begins within 4 business hours.
+  - P2 (non-critical issue): Response begins within 2 business days.
+  - P3 (minor issue / enhancement request): Addressed at start of the next sprint.
+
+- **Team Continuity:** Core team members are named in the Team section. Globalbit will not replace a core team member during the project without prior client approval. In case of departure or extended absence, Globalbit will provide an equal or higher caliber replacement within 5 business days at no additional cost.
+
+- **Full Source Code Ownership:** Upon payment for hours actually delivered, full IP rights to the source code transfer to the client. The client has live repository access throughout the project - no "code held hostage".
+
+- **Exit Plan:** Should the client elect to transition maintenance to an alternate vendor or internal team, Globalbit commits to a structured 4-week knowledge transfer from notice - including architecture documentation, operations runbook, build/deploy guides, and live sessions. Up to 40 hours of transfer time are included in the project cost at no additional charge.
+
+- **Professional Liability Insurance:** Globalbit carries a NIS 5,000,000 professional liability policy. Certificate of Insurance available on request.
+
+- **Transparent Billing:** Detailed monthly hours report (by task and team member), open to inspection. Unused hours are credited or rolled to the next month.
+
+---
+
 ## Payment Terms (T&M Standard)
 
 The client will purchase a package of hours in advance based on the estimated monthly hours and the hourly rates specified in this proposal. Upon project completion, if there are any unused hours, the company will credit the client for the cost of the unused hours.

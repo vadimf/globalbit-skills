@@ -29,6 +29,9 @@ Skill for creating and editing Google Docs the Globalbit way. Handles authentica
 5. **Always insert content in Section 0** — BEFORE the `NEXT_PAGE` section break. Content after the break has no header/footer.
 6. **Never create new section breaks** — this breaks the template's header/footer behavior.
 7. **Never manipulate headers/footers programmatically** — rely on the template's built-in header/footer. The API does not reliably support header changes.
+8. **Never insert blank lines before or after headings** — headings already have built-in `spaceAbove` / `spaceBelow` from the named style. Adding empty paragraphs around them creates double spacing and breaks the visual rhythm. When inserting content, place a heading directly after the previous paragraph and the next paragraph directly after the heading - no `"\n"`-only items between them.
+9. **Never use em dash (`—`) or en dash (`–`)** - always use a regular hyphen (`-`) instead. Em dashes are a strong AI-writing tell and look out of place in Hebrew RTL text. Apply this in body copy, tables, and lists. When parsing markdown input that contains `—` or `–`, normalize them to `-` before insertion.
+10. **List font and size must match body text** - bullet and numbered list items must use the same `weightedFontFamily` and `fontSize` as `NORMAL_TEXT` paragraphs (**Rubik 11pt** in the Globalbit template). After `createParagraphBullets`, always re-assert the text style on the list item's range. Lists in a different font or size from surrounding paragraphs look broken. Best practice: probe the doc's `NORMAL_TEXT` style for the actual font/size at runtime (in case the template changes) instead of hard-coding.
 
 ---
 
@@ -400,6 +403,17 @@ for elem in body:
                     'fields': 'lineSpacing,spaceBelow,spacingMode'
                 }
             })
+            # MANDATORY: re-assert font/size to match body text
+            style_requests.append({
+                'updateTextStyle': {
+                    'range': {'startIndex': start, 'endIndex': end},
+                    'textStyle': {
+                        'weightedFontFamily': {'fontFamily': 'Rubik'},
+                        'fontSize': {'magnitude': 11, 'unit': 'PT'},
+                    },
+                    'fields': 'weightedFontFamily,fontSize'
+                }
+            })
         elif expected_style == 'BULLET':
             style_requests.append({
                 'createParagraphBullets': {
@@ -417,6 +431,17 @@ for elem in body:
                         'spacingMode': 'NEVER_COLLAPSE',
                     },
                     'fields': 'lineSpacing,spaceBelow,spacingMode'
+                }
+            })
+            # MANDATORY: re-assert font/size to match body text
+            style_requests.append({
+                'updateTextStyle': {
+                    'range': {'startIndex': start, 'endIndex': end},
+                    'textStyle': {
+                        'weightedFontFamily': {'fontFamily': 'Rubik'},
+                        'fontSize': {'magnitude': 11, 'unit': 'PT'},
+                    },
+                    'fields': 'weightedFontFamily,fontSize'
                 }
             })
         
@@ -444,8 +469,14 @@ For each table placeholder (process in **reverse** order):
 
 ## Table Styling Standard
 
+> **MANDATORY for ALL tables, no exceptions:**
+> - **Font:** Arial 10pt for both header and body cells (set `weightedFontFamily.fontFamily: "Arial"` and `fontSize: 10pt`).
+> - **Header row:** navy blue background (`rgb 0.11, 0.09, 0.25`), text in **bold** and **white** (`rgb 1.0, 1.0, 1.0`).
+> - **Body rows:** default text color, 115% line spacing, 2pt above/below.
+> - **First row pinned** as repeating header on multi-page tables (`pinTableHeaderRows`).
+
 ```python
-# Header row — navy blue bg, white bold text
+# Header row - navy blue bg, white bold text
 header_bg = {
     'updateTableCellStyle': {
         'tableCellStyle': {
@@ -465,22 +496,33 @@ header_bg = {
     }
 }
 
-# Header text — white, bold, 9pt
+# Header text - Arial 10, white, bold (MANDATORY for ALL tables)
 header_text = {
     'updateTextStyle': {
         'range': {'startIndex': header_start, 'endIndex': header_end},
         'textStyle': {
             'bold': True,
-            'fontSize': {'magnitude': 9, 'unit': 'PT'},
+            'weightedFontFamily': {'fontFamily': 'Arial'},
+            'fontSize': {'magnitude': 10, 'unit': 'PT'},
             'foregroundColor': {
                 'color': {'rgbColor': {'red': 1.0, 'green': 1.0, 'blue': 1.0}}
             }
         },
-        'fields': 'bold,fontSize,foregroundColor'
+        'fields': 'bold,weightedFontFamily,fontSize,foregroundColor'
     }
 }
 
-# Body rows — 9pt, compact spacing
+# Body rows - Arial 10, compact spacing (MANDATORY for ALL tables)
+body_text_style = {
+    'updateTextStyle': {
+        'range': {'startIndex': body_start, 'endIndex': body_end},
+        'textStyle': {
+            'weightedFontFamily': {'fontFamily': 'Arial'},
+            'fontSize': {'magnitude': 10, 'unit': 'PT'},
+        },
+        'fields': 'weightedFontFamily,fontSize'
+    }
+}
 body_style = {
     'updateParagraphStyle': {
         'range': {'startIndex': body_start, 'endIndex': body_end},
@@ -526,6 +568,50 @@ Google Docs has a quirk: `spacingMode` defaults to `COLLAPSE_LISTS`, which **ign
 
 Without `spacingMode: NEVER_COLLAPSE`, bullet and numbered items will be crammed together.
 
+## List Font Consistency (CRITICAL)
+
+> **MANDATORY**: bullet and numbered list items must use the **same font family and size as body text** (the `NORMAL_TEXT` named style of the document — typically Arial 11pt for the Globalbit template). Lists that inherit a different font/size from the bullet preset look visually broken next to surrounding paragraphs.
+
+After applying `createParagraphBullets`, the preset can override the run's font. Always re-assert the text style explicitly on the list item's range:
+
+```python
+# Apply this to EVERY bullet and numbered list item, after createParagraphBullets
+# Globalbit template uses Rubik 11pt for body text - lists must match
+{
+    'updateTextStyle': {
+        'range': {'startIndex': start, 'endIndex': end},
+        'textStyle': {
+            'weightedFontFamily': {'fontFamily': 'Rubik'},
+            'fontSize': {'magnitude': 11, 'unit': 'PT'},
+        },
+        'fields': 'weightedFontFamily,fontSize'
+    }
+}
+```
+
+**Best practice: probe `NORMAL_TEXT` at runtime** rather than hard-coding the font. The template currently uses Rubik 11pt, but probing makes the script resilient to future template changes:
+
+```python
+def detect_body_font(doc):
+    """Find the actual font/size used in NORMAL_TEXT paragraphs."""
+    font, size = 'Rubik', 11  # fallback defaults
+    for el in doc['body']['content']:
+        if 'paragraph' not in el:
+            continue
+        if el['paragraph'].get('paragraphStyle', {}).get('namedStyleType') != 'NORMAL_TEXT':
+            continue
+        for e in el['paragraph'].get('elements', []):
+            ts = e.get('textRun', {}).get('textStyle', {})
+            if 'weightedFontFamily' in ts:
+                font = ts['weightedFontFamily'].get('fontFamily', font)
+            if 'fontSize' in ts:
+                size = ts['fontSize'].get('magnitude', size)
+        return font, size  # use the first NORMAL_TEXT we find
+    return font, size
+```
+
+If the body text changes (e.g. another template uses 10pt), list items follow automatically.
+
 ---
 
 ## Text Alignment
@@ -537,6 +623,8 @@ Without `spacingMode: NEVER_COLLAPSE`, bullet and numbered items will be crammed
 ---
 
 ## Heading Spacing Standard
+
+> **CRITICAL**: Do NOT insert empty paragraphs (`"\n"`-only items) before or after headings. The `spaceAbove` / `spaceBelow` values below already create the correct visual gap. Adding a blank line on top stacks two whitespace blocks and the heading floats too far from its content. When parsing markdown, skip blank lines that surround `#`/`##`/`###` lines.
 
 ```python
 # HEADING_1 — large spacing above, smaller below

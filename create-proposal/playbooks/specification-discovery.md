@@ -15,6 +15,7 @@ Specification & Discovery is typically the **first engagement** with a client. I
 - Creates a shared understanding between business and technical stakeholders
 - Globalbit's **Zetra AI** tool reduces specification time by ~70%, freeing human experts for strategic thinking
 - Deliverables become the baseline for development budgeting and planning
+- **Acts as a scope-creep firewall** — a properly executed discovery phase produces a baseline that protects the development budget downstream. Frame this explicitly to the client: discovery is not documentation, it is the mechanism that prevents mid-project blowouts. Buyers respond to "this protects you from the 2–3x overrun that plagues spec-skipping projects" much more than to "we will gather requirements".
 
 ---
 
