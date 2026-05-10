@@ -79,6 +79,12 @@ modify, or reformat these. Listed for the current default Hebrew template:
   `{{SECTION_PROJECT_PHASES}}` (CUSTOM). Track by occurrence index.
 - `תעריפי שעה` + `תנאי תשלום` (sub-sections inside `תמורה`) — static rate philosophy
   and Net+5 terms.
+- `תחזוקה ותמיכה` (standalone H1, between תמורה and הנחות יסוד) — Globalbit's standard
+  maintenance offering. Two H2 sub-sections: "במהלך תקופת העבודה השוטפת" (T&M during
+  active work) and "לאחר סיום הפיתוח" (5,000 ₪/month post-launch package, up to 12 hours,
+  SLA, weekday hours). Canonical terms — never modify in a per-project proposal. If a
+  specific project needs different maintenance terms, append them via the assumptions
+  section instead of editing this block.
 
 ### Adaptable Sentences (inside the static "אודות גלובלביט")
 

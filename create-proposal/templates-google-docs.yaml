@@ -213,3 +213,14 @@ static_sections:
     note: |
       The תמורה H1 has 3 inline placeholders for cost/timeframe/hours (above).
       The תעריפי שעה and תנאי תשלום sub-sections are STATIC.
+  - section: "תחזוקה ותמיכה"
+    note: |
+      Standalone H1 section between תמורה and הנחות יסוד. Full STATIC.
+      Contains two H2 sub-sections:
+        - "במהלך תקופת העבודה השוטפת" — T&M-based maintenance during active work
+        - "לאחר סיום הפיתוח" — post-development monthly maintenance package
+          (5,000 ₪/month, up to 12 hours, defined SLA, weekday hours)
+      The fixed pricing and SLA terms here are canonical Globalbit standard offering.
+      Never modify. If a specific project needs different maintenance terms,
+      add them via {{ASSUMPTIONS_APPEND}} or extend the template with a per-project
+      placeholder later.
