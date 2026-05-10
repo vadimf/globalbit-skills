@@ -1,0 +1,215 @@
+# Globalbit Proposal Master Templates - Google Docs registry
+#
+# Each entry maps a (service-type, language) tuple to a Google Doc template ID.
+# The proposal generation workflow duplicates this template, replaces placeholders,
+# and produces the final proposal document.
+#
+# IMPORTANT: Static sections in the template (אודות גלובלביט with images, מחויבות הלקוח,
+# תנאים כלליים, etc.) are NEVER touched by the generation script - they are copied
+# verbatim from the master.
+
+templates:
+  # Generic master template (works for all software-development style proposals).
+  # When new service-specific masters are created, register them here.
+  default:
+    he:
+      doc_id: "1CRStai4W3U_ZW0Cc4Tvs0EcVQc19wPezRbuwTomQMOM"
+      url: "https://docs.google.com/document/d/1CRStai4W3U_ZW0Cc4Tvs0EcVQc19wPezRbuwTomQMOM/edit"
+      source_template: "1_dZHdcikoq9OWNjli3GPxlNxGWWKPWPYGEzU57edFyI"  # original Globalbit template (read-only reference)
+      created: 2026-05-10
+
+# ---
+# Placeholder convention used in the master templates.
+# The generation script must replace each placeholder with the right content.
+# ---
+
+placeholders:
+
+  # Cover / title
+  PROPOSAL_TITLE:
+    location: TITLE element on page 1
+    type: replace
+    content: full proposal title in Hebrew, e.g. "הצעה לפיתוח מערכת תומכת החלטה קלינית לרופאי ילדים"
+
+  # CUSTOM sections - script generates content from scratch and replaces the placeholder
+  # The placeholder paragraph itself is replaced; the H1 heading above it stays.
+  SECTION_EXEC_SUMMARY:
+    section: "תקציר מנהלים"
+    type: replace
+    behavior: CUSTOM
+    content: 2-3 narrative paragraphs + 3-4 takeaway bullets + vision close (per Section 1 guide)
+
+  SECTION_BACKGROUND:
+    section: "רקע והקשר"
+    type: replace
+    behavior: CUSTOM
+    content: 3 paragraphs - client context, the challenge, anticipated results
+
+  SECTION_BUSINESS_VALUE:
+    section: "ערך עסקי ותוצאות אסטרטגיות צפויות"
+    type: replace
+    behavior: CUSTOM
+    content: 3-6 numbered business outcomes (per Section 3 guide)
+
+  SECTION_PROJECT_GOALS:
+    section: "מטרות הפרויקט"
+    type: replace
+    behavior: CUSTOM
+    content: 3-6 numbered project-engagement goals (per Section 4 guide)
+
+  SECTION_SOLUTION:
+    section: "הפתרון המוצע"
+    type: replace
+    behavior: CUSTOM
+    content: |
+      Strategic framing sub-heading + narrative components.
+      Each component is a paragraph ending with "המשמעות העסקית:".
+      No What/Why/Deliverable bullet format. (per Section 5 guide)
+
+  SECTION_SCOPE:
+    section: "היקף הפרויקט ותוצרים"
+    type: replace
+    behavior: CUSTOM
+    content: In-scope list, out-of-scope list, deliverables table
+
+  SECTION_PROJECT_PHASES:
+    section: "שלבי הפרויקט"  # SECOND occurrence
+    type: replace
+    behavior: CUSTOM
+    occurrence: 2
+    note: |
+      The doc has TWO H1 with this name. The first is the GENERIC methodology
+      section (STATIC, never touched). The second is the project-specific phases
+      with project-specific weeks and activities.
+    content: project-specific phases table
+
+  SECTION_TEAM:
+    section: "צוות הפרויקט"
+    type: replace
+    behavior: CUSTOM
+    content: |
+      Team table (anonymous roles by default; named team only if user requests).
+      Always include the no-swap commitment paragraph.
+
+  SECTION_TIMELINE_HOURS:
+    section: "לוח זמנים והיקף שעות"
+    type: replace
+    behavior: CUSTOM
+    content: phase overview + effort estimation table + commercial disclaimer
+
+  SECTION_RISKS:
+    section: "ניהול סיכונים"
+    type: replace
+    behavior: CUSTOM
+    content: 5-8 project-specific risks with severity x probability matrix
+
+  SECTION_ADDED_VALUE:
+    section: "ערכים מוספים ויתרונות גלובלביט"
+    type: replace
+    behavior: CUSTOM
+    content: |
+      5-7 value items, each: bold headline + 1-2 sentence explanation.
+      Adapted to client/project context per the section guide.
+
+  # Commercial inline fields (in תמורה section)
+  PROJECT_COST:
+    section: "תמורה"
+    type: inline_field
+    content: e.g., "230,000 ₪ (לא כולל מע״מ)"
+
+  PROJECT_TIMEFRAME:
+    section: "תמורה"
+    type: inline_field
+    content: e.g., "14 שבועות (10 שבועות עד תחילת פיילוט + 4 שבועות פיילוט מנוהל)"
+
+  ESTIMATED_HOURS:
+    section: "תמורה"
+    type: inline_field
+    content: e.g., "~805 שעות"
+
+  # APPEND sections - script ADDS project-specific content to the end of the static section.
+  # The placeholder is at the end of the section. Static content above it stays untouched.
+  ASSUMPTIONS_APPEND:
+    section: "הנחות יסוד"
+    type: replace
+    behavior: APPEND
+    content: project-specific assumptions (added to any existing static base)
+
+  CLIENT_COMMITMENTS_APPEND:
+    section: "מחויבות הלקוח"
+    type: replace
+    behavior: APPEND
+    content: |
+      ADDITIONAL project-specific client commitments beyond the static base.
+      The existing static commitments (PM appointment, response times, etc.)
+      are NEVER removed or modified.
+
+  GENERAL_TERMS_APPEND:
+    section: "תנאים כלליים"
+    type: replace
+    behavior: APPEND
+    content: |
+      ADDITIONAL project-specific terms only (e.g., AI/ML disclaimer).
+      The existing static terms are NEVER removed or modified.
+
+  NEXT_STEPS_APPEND:
+    section: "שלבים הבאים"
+    type: replace
+    behavior: APPEND
+    content: project-specific next steps (alignment meeting, kickoff timeline)
+
+# ---
+# Adaptable canonical sentences (in the static "אודות גלובלביט" section).
+# The script may replace these with client-adapted versions via replaceAllText.
+# Adaptations must remain truthful and concise. Never invent client logos or claims.
+# ---
+
+adaptable_sentences:
+  about_industry_framing:
+    canonical: "גלובלביט הוא בית תוכנה ישראלי עטור פרסים, המתמחה בפיתוח מוצרי דיגיטל למשרדי ממשלה ותאגידים ישראליים ובינלאומיים."
+    adaptation_rules:
+      startup: "...המתמחה בפיתוח מוצרי דיגיטל לסטארט-אפים בצמיחה ולתאגידים מובילים."
+      healthcare: "...המתמחה בפיתוח מערכות דיגיטליות לתחום הבריאות, מוסדות רפואיים ותאגידי פארמה."
+      finance: "...המתמחה בפיתוח מערכות דיגיטליות למוסדות פיננסיים, ביטוח וחיסכון."
+      government: "...המתמחה בפיתוח מערכות דיגיטליות למשרדי ממשלה ותאגידים."
+    rule: |
+      Never claim industry expertise the company doesn't have. Verify against
+      company-profile.md client list before adapting.
+
+  about_client_list:
+    canonical: "לחברה ניסיון עשיר בתכנון, יישום ותחזוקת מערכות ארגוניות עבור מוסדות פיננסיים, שנצבר בעבודה עם ארגונים רבים כגון: הפניקס, כלל ביטוח, IBI, ישרכארט ועוד."
+    adaptation_rules:
+      healthcare: "לחברה ניסיון עשיר בפיתוח מערכות לתחום הבריאות, שנצבר בעבודה עם ארגונים כגון: פייזר, מכבי פארם, HelloHeart ועוד."
+      finance: "לחברה ניסיון עשיר ... עם הפניקס, כלל ביטוח, IBI, ישרכארט, מימון ישיר, מנורה מבטחים ועוד."
+      government: "לחברה ניסיון עשיר ... עם מערך הדיגיטל הלאומי, רשות שדות התעופה, משרד התרבות ועוד."
+      ecommerce: "לחברה ניסיון עשיר ... עם אספרסו קלאב, וויי-שוז, ישראלפארם ועוד."
+      tech: "לחברה ניסיון עשיר ... עם Intel, Moovit ועוד."
+    rule: |
+      Pick clients from company-profile.md. Never invent. Pick 3-5 most relevant
+      to the prospect. List in order of relevance, not size.
+
+# ---
+# Sections that are STATIC (never touched by the generation script).
+# These contain canonical Globalbit content with images, formatting, and tables
+# that must be preserved exactly.
+# ---
+
+static_sections:
+  - section: "אודות גלובלביט"
+    note: |
+      Contains 5 inline images (client logos and award badges).
+      Contains H2 sub-sections: "לקוחות החברה" and "פרסים בהם זכו מוצרי הדיגיטל".
+      Two adaptable sentences inside (see adaptable_sentences above).
+      Otherwise NEVER modify.
+  - section: "עבודה בתהליכי Agile"
+    note: Globalbit's standard Agile narrative + "ניהול יעיל של משאבים ותקציב" with golden triangle principles. Never modify.
+  - section: "שלבי הפרויקט"
+    occurrence: 1
+    note: |
+      The methodology section with 7 H2 sub-sections (Discovery, Planning, Sprints, etc.).
+      DIFFERENT from the second שלבי הפרויקט H1 (which is project-specific and CUSTOM).
+      Never modify.
+  - section: "תמורה / תעריפי שעה / תנאי תשלום"
+    note: |
+      The תמורה H1 has 3 inline placeholders for cost/timeframe/hours (above).
+      The תעריפי שעה and תנאי תשלום sub-sections are STATIC.
