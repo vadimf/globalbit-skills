@@ -40,6 +40,20 @@ Skills are structured instruction sets that give AI coding agents domain-specifi
 | **[case-studies](./case-studies)** | Create, rewrite, and strategically improve case study pages |
 | **[humanizer](./humanizer)** | Remove signs of AI-generated writing to make text sound natural and human-written |
 
+### Product & Project Planning
+| Skill | Description |
+|-------|-------------|
+| **[prd](./prd)** | Generate comprehensive Product Requirements Documents with executive summaries, user stories, technical specs, and risk analysis |
+| **[write-a-prd](./write-a-prd)** | Create a PRD through user interview, codebase exploration, and module design — then submit as a GitHub issue |
+| **[breakdown-feature-prd](./breakdown-feature-prd)** | Break down an Epic into detailed feature-level PRDs for engineering teams |
+| **[prd-to-plan](./prd-to-plan)** | Turn a PRD into a multi-phase implementation plan using tracer-bullet vertical slices |
+
+### Business & Sales
+| Skill | Description |
+|-------|-------------|
+| **[create-proposal](./create-proposal)** | Create high-conversion, executive-level proposals for Globalbit software services (16-section format) |
+| **[globalbit-document](./globalbit-document)** | Work with Google Docs using the Globalbit template — create, populate, and style professional documents via the Docs API |
+
 
 ## 🛠️ Usage
 
