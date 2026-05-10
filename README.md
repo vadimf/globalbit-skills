@@ -43,10 +43,18 @@ Skills are structured instruction sets that give AI coding agents domain-specifi
 ### Product & Project Planning
 | Skill | Description |
 |-------|-------------|
-| **[prd](./prd)** | Generate comprehensive Product Requirements Documents with executive summaries, user stories, technical specs, and risk analysis |
-| **[write-a-prd](./write-a-prd)** | Create a PRD through user interview, codebase exploration, and module design — then submit as a GitHub issue |
-| **[breakdown-feature-prd](./breakdown-feature-prd)** | Break down an Epic into detailed feature-level PRDs for engineering teams |
-| **[prd-to-plan](./prd-to-plan)** | Turn a PRD into a multi-phase implementation plan using tracer-bullet vertical slices |
+| **[product-planner](./product-planner)** | End-to-end product planning — discovery interview → PRD → phased implementation plan. Supports 4 modes: `full`, `prd-only`, `breakdown`, `plan` |
+
+<details><summary>Deprecated (replaced by product-planner)</summary>
+
+| Skill | Description |
+|-------|-------------|
+| [prd](./prd) | _(deprecated)_ PRD generation |
+| [write-a-prd](./write-a-prd) | _(deprecated)_ Interview-driven PRD |
+| [breakdown-feature-prd](./breakdown-feature-prd) | _(deprecated)_ Epic → Feature PRD |
+| [prd-to-plan](./prd-to-plan) | _(deprecated)_ PRD → Implementation plan |
+
+</details>
 
 ### Business & Sales
 | Skill | Description |
