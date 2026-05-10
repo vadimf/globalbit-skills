@@ -45,17 +45,6 @@ Skills are structured instruction sets that give AI coding agents domain-specifi
 |-------|-------------|
 | **[product-planner](./product-planner)** | End-to-end product planning — discovery interview → PRD → phased implementation plan. Supports 4 modes: `full`, `prd-only`, `breakdown`, `plan` |
 
-<details><summary>Deprecated (replaced by product-planner)</summary>
-
-| Skill | Description |
-|-------|-------------|
-| [prd](./prd) | _(deprecated)_ PRD generation |
-| [write-a-prd](./write-a-prd) | _(deprecated)_ Interview-driven PRD |
-| [breakdown-feature-prd](./breakdown-feature-prd) | _(deprecated)_ Epic → Feature PRD |
-| [prd-to-plan](./prd-to-plan) | _(deprecated)_ PRD → Implementation plan |
-
-</details>
-
 ### Business & Sales
 | Skill | Description |
 |-------|-------------|
