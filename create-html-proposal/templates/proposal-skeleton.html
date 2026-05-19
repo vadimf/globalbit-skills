@@ -1,0 +1,162 @@
+<!--
+  Proposal body skeleton → goes to content/<client>-proposal.html
+  (raw HTML fragment, NOT a full document; the gate injects it).
+
+  STATIC parts (copy verbatim, do not rewrite per client):
+    • #gp-progress bar, .cover shell, TOC <aside>, Download PDF button
+    • #about section            → use templates/about-globalbit.html
+    • closing wrapper divs
+  PER-CLIENT parts (write/tailor):
+    • cover h1 + .meta + Reference
+    • #summary, #background, #business-goals, #project-goals, #solution,
+      #scope, #phases, #team, #timeline, #risk, #value, #commercial,
+      #next, #terms, optional #appendix-architecture
+
+  Chapter eyebrows auto-number via CSS counter — write <div class="kicker">Label</div>
+  WITHOUT a number. Appendices use class "appendix" on the <section> (number suppressed).
+  TOC items are <li><a href="#id">Label</a></li> in document order.
+-->
+<div class="progress" id="gp-progress"></div>
+
+<header class="cover">
+  <div class="cover-inner">
+    <div class="eyebrow" style="margin-bottom:16px">Proposal for Software Development Services</div>
+    <h1>{{PROJECT_TITLE}}</h1>
+    <div class="meta">
+      <div><div class="k">Prepared for</div><div class="v">{{CLIENT_NAME}}</div></div>
+      <div><div class="k">Prepared by</div><div class="v">Globalbit</div></div>
+      <div><div class="k">Date</div><div class="v">{{MONTH_YEAR}}</div></div>
+      <div><div class="k">Reference</div><div class="v">{{REFERENCE}}</div></div>
+    </div>
+    <div class="confidential">Confidential</div>
+  </div>
+</header>
+
+<div class="gp-main">
+<div class="wrap">
+ <div class="layout">
+
+  <aside class="toc" id="gp-toc" aria-label="Contents">
+    <h2><span class="toc-label">Contents</span><button class="toc-toggle" id="gp-toc-toggle" aria-label="Minimize contents" title="Minimize">&minus;</button></h2>
+    <ol>
+      <li><a href="#summary">Executive Summary</a></li>
+      <li><a href="#background">Background &amp; Context</a></li>
+      <li><a href="#business-goals">Business Goals</a></li>
+      <li><a href="#project-goals">Project Goals</a></li>
+      <li><a href="#solution">Proposed Solution</a></li>
+      <li><a href="#about">About Globalbit</a></li>
+      <li><a href="#scope">Scope &amp; Deliverables</a></li>
+      <li><a href="#phases">Project Phases</a></li>
+      <li><a href="#team">Team Structure</a></li>
+      <li><a href="#timeline">Timeline &amp; Effort</a></li>
+      <li><a href="#risk">Risk Management</a></li>
+      <li><a href="#value">Added Value</a></li>
+      <li><a href="#commercial">Commercial Terms</a></li>
+      <li><a href="#next">Next Steps</a></li>
+      <li><a href="#terms">Commitments &amp; Terms</a></li>
+      <!-- optional: <li><a href="#appendix-architecture">Appendix · Architecture</a></li> -->
+    </ol>
+    <button class="toc-dl" id="gp-dl" type="button" aria-label="Download proposal as PDF">&#8595;&nbsp; Download PDF</button>
+  </aside>
+
+  <div class="content">
+
+  <section id="summary" class="wide">
+    <div class="summary">
+      <div class="kicker" style="color:#9a9a9a">Executive Summary</div>
+      <h2 class="sec">Executive summary</h2>
+      <div class="rule"></div>
+      <p>{{...}}</p>
+      <div class="bullet"><span>{{key point}}</span></div>
+    </div>
+  </section>
+
+  <section id="background"><div class="kicker">Background</div><h2 class="sec">Background &amp; Context</h2><div class="rule"></div><p>{{...}}</p></section>
+  <section id="business-goals"><div class="kicker">Business Goals</div><h2 class="sec">Business Goals</h2><div class="rule"></div><ol><li>{{...}}</li></ol></section>
+  <section id="project-goals"><div class="kicker">Project Goals</div><h2 class="sec">Project Goals</h2><div class="rule"></div><ol><li>{{...}}</li></ol></section>
+  <section id="solution" class="wide"><div class="kicker">Proposed Solution</div><h2 class="sec">Proposed Solution</h2><div class="rule"></div>
+    <div style="max-width:var(--read)"><p>{{...}}</p></div>
+    <div class="card"><h4>{{component}}</h4><p>{{...}}</p><span class="impact"><b>Business impact — </b>{{...}}</span></div>
+  </section>
+
+  <hr class="div" />
+
+  <!-- ===== STATIC: paste templates/about-globalbit.html here ===== -->
+  {{ABOUT_GLOBALBIT}}
+
+  <section id="scope"><div class="kicker">Scope</div><h2 class="sec">Scope and deliverables</h2><div class="rule"></div>
+    <h3>Deliverables</h3>
+    <div class="tbl-scroll"><table><thead><tr><th class="num">#</th><th>Deliverable</th><th>Description</th></tr></thead><tbody>
+      <tr><td class="num">1</td><td>{{...}}</td><td>{{...}}</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section id="phases"><div class="kicker">Phases</div><h2 class="sec">Project phases</h2><div class="rule"></div>
+    <p>{{...}}</p>
+    <h3>Phase 0: Discovery and specification</h3><p>{{...}}</p>
+    <blockquote><strong>Total estimated timeline: ~{{N-M}} months</strong></blockquote>
+  </section>
+
+  <section id="team"><div class="kicker">Team</div><h2 class="sec">Team structure</h2><div class="rule"></div>
+    <div class="tbl-scroll"><table><thead><tr><th>Role</th><th>Responsibility</th></tr></thead><tbody>
+      <tr><td>{{role}}</td><td>{{...}}</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section id="timeline"><div class="kicker">Timeline &amp; Effort</div><h2 class="sec">Timeline and effort estimation</h2><div class="rule"></div>
+    <div class="tbl-scroll"><table><thead><tr><th>Module</th><th class="num">Estimated hours</th></tr></thead><tbody>
+      <tr><td>{{...}}</td><td class="num">{{...}}</td></tr>
+      <tr class="total"><td>Total estimated effort</td><td class="num">~{{...}} hours</td></tr>
+    </tbody></table></div>
+    <blockquote>{{estimate disclaimer}}</blockquote>
+  </section>
+
+  <section id="risk" class="wide"><div class="kicker">Risk</div><h2 class="sec">Risk management</h2><div class="rule"></div>
+    <div class="tbl-scroll"><table><thead><tr><th>Risk</th><th class="num">Sev</th><th class="num">Prob</th><th class="num">Level</th><th>Mitigation</th></tr></thead><tbody>
+      <tr><td>{{...}}</td><td class="num">4</td><td class="num">3</td><td class="num"><span class="risk med">12</span></td><td>{{...}}</td></tr>
+    </tbody></table></div>
+    <!-- .risk classes: low (1-6) #3b8a3b · med (7-14) #c08a00 · high (15-25) #c0392b -->
+  </section>
+
+  <section id="value" class="wide"><div class="kicker">Added Value</div><h2 class="sec">Added value</h2><div class="rule"></div>
+    <div class="av"><div class="card"><h4>{{...}}</h4><p>{{...}}</p></div></div>
+  </section>
+
+  <section id="commercial"><div class="kicker">Commercial</div><h2 class="sec">Commercial terms</h2><div class="rule"></div>
+    <h3>Project estimate</h3>
+    <div class="estimate">
+      <div class="e"><div class="k">Estimated investment</div><div class="v">{{range}} ₪</div></div>
+      <div class="e"><div class="k">Estimated effort</div><div class="v">~{{...}} hrs</div></div>
+      <div class="e"><div class="k">Estimated timeline</div><div class="v">~{{N–M}} months</div></div>
+    </div>
+    <h3>Hourly rates</h3>
+    <div class="tbl-scroll"><table><thead><tr><th>Role</th><th class="num">Hourly rate (ILS)</th></tr></thead><tbody>
+      <tr><td>CTO / Technical Director</td><td class="num">380 ₪</td></tr>
+      <tr><td>Project Manager</td><td class="num">322 ₪</td></tr>
+      <tr><td>Senior Software Developer</td><td class="num">280 ₪</td></tr>
+      <tr><td>UI/UX Designer</td><td class="num">250 ₪</td></tr>
+      <tr><td>DevOps Engineer</td><td class="num">280 ₪</td></tr>
+      <tr><td>QA Engineer</td><td class="num">210 ₪</td></tr>
+    </tbody></table></div>
+    <p><strong>All prices exclude VAT.</strong></p>
+  </section>
+
+  <section id="next"><div class="kicker">Next Steps</div><h2 class="sec">Next steps</h2><div class="rule"></div><ol><li>{{...}}</li></ol></section>
+
+  <section id="terms"><div class="kicker">Commitments &amp; Terms</div><h2 class="sec">Client commitment</h2><div class="rule"></div>
+    <ul><li>{{...}}</li></ul>
+    <h3>General terms</h3><ul><li>This proposal is valid for 30 days from the date of issuance.</li></ul>
+  </section>
+
+  <!-- optional appendix (number suppressed via .appendix on the section) -->
+  <!--
+  <section id="appendix-architecture" class="wide appendix">
+    <div class="kicker">Appendix 1</div><h2 class="sec">Proposed Initial Architecture</h2><div class="rule"></div>
+    ... arch-layer / flow / ent-grid / stack / pipeline blocks ...
+  </section>
+  -->
+
+  </div>
+ </div>
+</div>
+</div>
