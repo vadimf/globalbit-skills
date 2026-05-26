@@ -17,7 +17,8 @@ serves the parent's files; your changes go nowhere.
 
 **Fix**: always check the absolute path of the file you're editing matches the
 absolute path Next is serving. If you're in a worktree, either:
-- Edit files at the parent project root (the path Next is actually serving), or
+- Edit files at `/Users/vadim/Documents/Code/Globalbit Website/Globalbit Surf/…`
+  (the parent), or
 - Restart the dev server from inside the worktree.
 
 The Read tool tells you the absolute path. Use it. Never trust your `cd` mental
