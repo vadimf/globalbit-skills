@@ -1,20 +1,20 @@
 <!--
   Proposal body skeleton → goes to content/<client>-proposal.html
-  (raw HTML fragment, NOT a full document; the gate injects it).
+  This is a raw HTML FRAGMENT (no <html>/<head>/<body>). The gate injects it
+  into <div class="gb-proposal">, where all the scoped CSS applies.
 
-  STATIC parts (copy verbatim, do not rewrite per client):
-    • #gp-progress bar, .cover shell, TOC <aside>, Download PDF button
-    • #about section            → use templates/about-globalbit.html
-    • closing wrapper divs
-  PER-CLIENT parts (write/tailor):
-    • cover h1 + .meta + Reference
-    • #summary, #background, #business-goals, #project-goals, #solution,
-      #scope, #phases, #team, #timeline, #risk, #value, #commercial,
-      #next, #terms, optional #appendix-architecture
+  CANONICAL EXAMPLE: content/klapton-proposal.html — mirror its structure.
 
-  Chapter eyebrows auto-number via CSS counter — write <div class="kicker">Label</div>
-  WITHOUT a number. Appendices use class "appendix" on the <section> (number suppressed).
-  TOC items are <li><a href="#id">Label</a></li> in document order.
+  Section order is FIXED. Do not reorder. Match the TOC <ol> below.
+    cover → summary → background → business-goals → project-goals → solution
+          → about → scope → phases → team → timeline → risk → value
+          → commercial → terms → (optional) appendix-architecture → next
+
+  Chapter eyebrows: <div class="kicker">Label</div> with NO number — CSS
+  auto-numbers via a counter. Appendices use class "appendix" on the <section>
+  to suppress the number (and JS folds the content; PDF expands it).
+
+  Replace every {{TOKEN}}. See WRITING-GUIDE.md for what to write in each section.
 -->
 <div class="progress" id="gp-progress"></div>
 
@@ -52,109 +52,283 @@
       <li><a href="#risk">Risk Management</a></li>
       <li><a href="#value">Added Value</a></li>
       <li><a href="#commercial">Commercial Terms</a></li>
-      <li><a href="#next">Next Steps</a></li>
       <li><a href="#terms">Commitments &amp; Terms</a></li>
       <!-- optional: <li><a href="#appendix-architecture">Appendix · Architecture</a></li> -->
+      <li><a href="#next">Next Steps</a></li>
     </ol>
     <button class="toc-dl" id="gp-dl" type="button" aria-label="Download proposal as PDF">&#8595;&nbsp; Download PDF</button>
   </aside>
 
   <div class="content">
 
+  <!-- ============= 1. EXECUTIVE SUMMARY (dark .summary card) ============= -->
   <section id="summary" class="wide">
     <div class="summary">
       <div class="kicker" style="color:#9a9a9a">Executive Summary</div>
       <h2 class="sec">Executive summary</h2>
       <div class="rule"></div>
-      <p>{{...}}</p>
-      <div class="bullet"><span>{{key point}}</span></div>
+      <p>{{Paragraph 1 — what you are building, for whom, in plain English}}</p>
+      <p>{{Paragraph 2 — how you'll build it; one sentence per major capability, ~5 max}}</p>
+      <p>{{Paragraph 3 — why Globalbit, in one sentence (clients + scale + track record)}}</p>
+      <div class="bullet"><span>{{Keystone 1 — what the platform supports end-to-end}}</span></div>
+      <div class="bullet"><span>{{Keystone 2 — the differentiating engines/components}}</span></div>
+      <div class="bullet"><span>{{Keystone 3 — architecture / compliance posture}}</span></div>
+      <div class="bullet"><span>{{Keystone 4 — investment of N-M ₪ over ~N-M months, spec-first approach}}</span></div>
+      <p style="margin-top:24px">{{Closing line — the de-risking statement (Discovery phase produces complete spec before significant dev)}}</p>
     </div>
   </section>
 
-  <section id="background"><div class="kicker">Background</div><h2 class="sec">Background &amp; Context</h2><div class="rule"></div><p>{{...}}</p></section>
-  <section id="business-goals"><div class="kicker">Business Goals</div><h2 class="sec">Business Goals</h2><div class="rule"></div><ol><li>{{...}}</li></ol></section>
-  <section id="project-goals"><div class="kicker">Project Goals</div><h2 class="sec">Project Goals</h2><div class="rule"></div><ol><li>{{...}}</li></ol></section>
-  <section id="solution" class="wide"><div class="kicker">Proposed Solution</div><h2 class="sec">Proposed Solution</h2><div class="rule"></div>
-    <div style="max-width:var(--read)"><p>{{...}}</p></div>
-    <div class="card"><h4>{{component}}</h4><p>{{...}}</p><span class="impact"><b>Business impact — </b>{{...}}</span></div>
+  <!-- ============= 2. BACKGROUND & CONTEXT ============= -->
+  <section id="background">
+    <div class="kicker">Background</div>
+    <h2 class="sec">Background &amp; Context</h2>
+    <div class="rule"></div>
+    <p>{{Who the client is, one paragraph of context}}</p>
+    <p>{{Current market state / pain}}</p>
+    <p>{{Why the client's vision matters now (regulatory / market opportunity)}}</p>
+  </section>
+
+  <!-- ============= 3. BUSINESS GOALS ============= -->
+  <section id="business-goals">
+    <div class="kicker">Business Goals</div>
+    <h2 class="sec">Business Goals</h2>
+    <div class="rule"></div>
+    <ol>
+      <li><strong>{{Goal name (outcome, not feature)}}</strong> — {{body}}</li>
+      <!-- 5-6 goals total -->
+    </ol>
+  </section>
+
+  <!-- ============= 4. PROJECT GOALS ============= -->
+  <section id="project-goals">
+    <div class="kicker">Project Goals</div>
+    <h2 class="sec">Project Goals</h2>
+    <div class="rule"></div>
+    <ol>
+      <li><strong>{{Concrete deliverable goal}}</strong> — {{body}}</li>
+      <!-- 5 goals total -->
+    </ol>
+  </section>
+
+  <!-- ============= 5. PROPOSED SOLUTION ============= -->
+  <section id="solution" class="wide">
+    <div class="kicker">Proposed Solution</div>
+    <h2 class="sec">Proposed Solution</h2>
+    <div class="rule"></div>
+    <div style="max-width:var(--read)">
+      <h3>Our approach: building {{noun}}</h3>
+      <p>{{Setup paragraph 1 — the technical worldview}}</p>
+      <p>{{Setup paragraph 2 — why Globalbit's approach fits, with concrete past-client references}}</p>
+      <h3>Key components</h3>
+    </div>
+
+    <!-- 6-10 numbered cards, each with a .impact pull-quote -->
+    <div class="card">
+      <h4>1. {{Component name}}</h4>
+      <p>{{Description — 1-2 paragraphs}}</p>
+      <span class="impact"><b>Business impact — </b>{{the one line a decision-maker reads}}</span>
+    </div>
+    <div class="card">
+      <h4>2. {{Component name}}</h4>
+      <p>{{...}}</p>
+      <span class="impact"><b>Business impact — </b>{{...}}</span>
+    </div>
+    <!-- repeat for components 3..N -->
   </section>
 
   <hr class="div" />
 
-  <!-- ===== STATIC: paste templates/about-globalbit.html here ===== -->
+  <!-- ============= 6. ABOUT GLOBALBIT (paste static block) ============= -->
+  <!-- Use templates/about-globalbit.html verbatim. Only swap {{DOMAIN_FIT}}
+       and {{QUALITY_CONTEXT}}. Do not edit the awards, stats, or client grid. -->
   {{ABOUT_GLOBALBIT}}
 
-  <section id="scope"><div class="kicker">Scope</div><h2 class="sec">Scope and deliverables</h2><div class="rule"></div>
+  <!-- ============= 7. SCOPE & DELIVERABLES ============= -->
+  <section id="scope">
+    <div class="kicker">Scope</div>
+    <h2 class="sec">Scope and deliverables</h2>
+    <div class="rule"></div>
     <h3>Deliverables</h3>
-    <div class="tbl-scroll"><table><thead><tr><th class="num">#</th><th>Deliverable</th><th>Description</th></tr></thead><tbody>
-      <tr><td class="num">1</td><td>{{...}}</td><td>{{...}}</td></tr>
-    </tbody></table></div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th class="num">#</th><th>Deliverable</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>{{Deliverable}}</td><td>{{Description}}</td></tr>
+        <!-- 8-12 rows -->
+      </tbody>
+    </table></div>
   </section>
 
-  <section id="phases"><div class="kicker">Phases</div><h2 class="sec">Project phases</h2><div class="rule"></div>
-    <p>{{...}}</p>
-    <h3>Phase 0: Discovery and specification</h3><p>{{...}}</p>
-    <blockquote><strong>Total estimated timeline: ~{{N-M}} months</strong></blockquote>
+  <!-- ============= 8. PROJECT PHASES ============= -->
+  <section id="phases">
+    <div class="kicker">Phases</div>
+    <h2 class="sec">Project phases</h2>
+    <div class="rule"></div>
+    <p>{{Opening framing — iterative delivery, 2-week sprints, live demos, feedback loop}}</p>
+
+    <h3>Phase 0: Discovery and specification ({{N-M}} weeks)</h3>
+    <p>{{Deep dive into requirements with stakeholders. Output: complete spec, regulatory map, UI/UX baseline, refined estimate.}}</p>
+
+    <h3>Phase 1: {{Foundation name}} ({{N-M}} weeks)</h3>
+    <p>{{Core platform + identity + first end-to-end happy path}}</p>
+
+    <h3>Phase 2: {{Core engines / features}} ({{N-M}} weeks)</h3>
+    <p>{{The platform's differentiating logic}}</p>
+
+    <h3>Phase 3: {{Completion / polish}} ({{N-M}} weeks)</h3>
+    <p>{{Final features, performance, security audit}}</p>
+
+    <h3>Phase 4: UAT &amp; Production launch ({{N-M}} weeks)</h3>
+    <p>{{Client-led UAT, parallel runs, production deployment}}</p>
+
+    <h3>Phase 5: Ongoing support ({{optional}})</h3>
+    <p>{{Maintenance, monitoring, evolution; sold separately or bundled}}</p>
+
+    <blockquote><strong>Total estimated timeline: ~{{N-M}} months</strong> (excluding optional ongoing support)</blockquote>
   </section>
 
-  <section id="team"><div class="kicker">Team</div><h2 class="sec">Team structure</h2><div class="rule"></div>
-    <div class="tbl-scroll"><table><thead><tr><th>Role</th><th>Responsibility</th></tr></thead><tbody>
-      <tr><td>{{role}}</td><td>{{...}}</td></tr>
-    </tbody></table></div>
+  <!-- ============= 9. TEAM STRUCTURE ============= -->
+  <section id="team">
+    <div class="kicker">Team</div>
+    <h2 class="sec">Team structure</h2>
+    <div class="rule"></div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+      <tbody>
+        <tr><td>CTO / Technical Director</td><td>Architecture decisions, technology selection, algorithm design oversight, security review</td></tr>
+        <tr><td>Project Manager</td><td>Scope management, sprint planning, client communication, delivery accountability</td></tr>
+        <tr><td>Senior Software Developer × {{N}}</td><td>{{Backend / frontend / full-stack delivery}}</td></tr>
+        <tr><td>UI/UX Designer</td><td>{{Discovery wireframes, design system, accessibility}}</td></tr>
+        <tr><td>DevOps Engineer</td><td>{{CI/CD, infra, monitoring, security baseline}}</td></tr>
+        <tr><td>QA Engineer</td><td>{{Test plan, automation, UAT support}}</td></tr>
+      </tbody>
+    </table></div>
   </section>
 
-  <section id="timeline"><div class="kicker">Timeline &amp; Effort</div><h2 class="sec">Timeline and effort estimation</h2><div class="rule"></div>
-    <div class="tbl-scroll"><table><thead><tr><th>Module</th><th class="num">Estimated hours</th></tr></thead><tbody>
-      <tr><td>{{...}}</td><td class="num">{{...}}</td></tr>
-      <tr class="total"><td>Total estimated effort</td><td class="num">~{{...}} hours</td></tr>
-    </tbody></table></div>
-    <blockquote>{{estimate disclaimer}}</blockquote>
+  <!-- ============= 10. TIMELINE & EFFORT ============= -->
+  <section id="timeline">
+    <div class="kicker">Timeline &amp; Effort</div>
+    <h2 class="sec">Timeline and effort estimation</h2>
+    <div class="rule"></div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Module</th><th class="num">Estimated hours</th></tr></thead>
+      <tbody>
+        <tr><td>{{Module name}}</td><td class="num">{{hours}}</td></tr>
+        <!-- repeat -->
+        <tr class="total"><td>Total estimated effort</td><td class="num">~{{total}} hours</td></tr>
+      </tbody>
+    </table></div>
+    <blockquote>Estimates are refined after the Discovery phase, when full functional specification is produced. Budget and timeline may shift to match the actual scope; both parties confirm before development begins.</blockquote>
   </section>
 
-  <section id="risk" class="wide"><div class="kicker">Risk</div><h2 class="sec">Risk management</h2><div class="rule"></div>
-    <div class="tbl-scroll"><table><thead><tr><th>Risk</th><th class="num">Sev</th><th class="num">Prob</th><th class="num">Level</th><th>Mitigation</th></tr></thead><tbody>
-      <tr><td>{{...}}</td><td class="num">4</td><td class="num">3</td><td class="num"><span class="risk med">12</span></td><td>{{...}}</td></tr>
-    </tbody></table></div>
-    <!-- .risk classes: low (1-6) #3b8a3b · med (7-14) #c08a00 · high (15-25) #c0392b -->
+  <!-- ============= 11. RISK MANAGEMENT ============= -->
+  <section id="risk" class="wide">
+    <div class="kicker">Risk</div>
+    <h2 class="sec">Risk management</h2>
+    <div class="rule"></div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Risk</th><th class="num">Sev</th><th class="num">Prob</th><th class="num">Level</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>{{Risk description}}</td><td class="num">4</td><td class="num">3</td><td class="num"><span class="risk med">12</span></td><td>{{Concrete mitigation action}}</td></tr>
+        <!-- 6-8 risks. .risk classes: low (1-6) green, med (7-14) amber, high (15-25) red -->
+      </tbody>
+    </table></div>
+    <!-- Do NOT add a "severity/probability legend". Removed deliberately. -->
   </section>
 
-  <section id="value" class="wide"><div class="kicker">Added Value</div><h2 class="sec">Added value</h2><div class="rule"></div>
-    <div class="av"><div class="card"><h4>{{...}}</h4><p>{{...}}</p></div></div>
+  <!-- ============= 12. ADDED VALUE ============= -->
+  <section id="value" class="wide">
+    <div class="kicker">Added Value</div>
+    <h2 class="sec">Added value</h2>
+    <div class="rule"></div>
+    <div class="av">
+      <div class="card"><h4>{{Value-add name}}</h4><p>{{Description}}</p></div>
+      <!-- 4-6 cards. These are NON-deliverable value-adds: ongoing support
+           options, internal training, IP transfer, knowledge transfer sessions,
+           code ownership, post-launch monitoring -->
+    </div>
   </section>
 
-  <section id="commercial"><div class="kicker">Commercial</div><h2 class="sec">Commercial terms</h2><div class="rule"></div>
+  <!-- ============= 13. COMMERCIAL TERMS ============= -->
+  <section id="commercial">
+    <div class="kicker">Commercial</div>
+    <h2 class="sec">Commercial terms</h2>
+    <div class="rule"></div>
     <h3>Project estimate</h3>
     <div class="estimate">
       <div class="e"><div class="k">Estimated investment</div><div class="v">{{range}} ₪</div></div>
-      <div class="e"><div class="k">Estimated effort</div><div class="v">~{{...}} hrs</div></div>
-      <div class="e"><div class="k">Estimated timeline</div><div class="v">~{{N–M}} months</div></div>
+      <div class="e"><div class="k">Estimated effort</div><div class="v">~{{total}} hrs</div></div>
+      <div class="e"><div class="k">Estimated timeline</div><div class="v">~{{N-M}} months</div></div>
     </div>
     <h3>Hourly rates</h3>
-    <div class="tbl-scroll"><table><thead><tr><th>Role</th><th class="num">Hourly rate (ILS)</th></tr></thead><tbody>
-      <tr><td>CTO / Technical Director</td><td class="num">380 ₪</td></tr>
-      <tr><td>Project Manager</td><td class="num">322 ₪</td></tr>
-      <tr><td>Senior Software Developer</td><td class="num">280 ₪</td></tr>
-      <tr><td>UI/UX Designer</td><td class="num">250 ₪</td></tr>
-      <tr><td>DevOps Engineer</td><td class="num">280 ₪</td></tr>
-      <tr><td>QA Engineer</td><td class="num">210 ₪</td></tr>
-    </tbody></table></div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Role</th><th class="num">Hourly rate (ILS)</th></tr></thead>
+      <tbody>
+        <tr><td>CTO / Technical Director</td><td class="num">380 ₪</td></tr>
+        <tr><td>Project Manager</td><td class="num">322 ₪</td></tr>
+        <tr><td>Senior Software Developer</td><td class="num">280 ₪</td></tr>
+        <tr><td>UI/UX Designer</td><td class="num">250 ₪</td></tr>
+        <tr><td>DevOps Engineer</td><td class="num">280 ₪</td></tr>
+        <tr><td>QA Engineer</td><td class="num">210 ₪</td></tr>
+      </tbody>
+    </table></div>
     <p><strong>All prices exclude VAT.</strong></p>
   </section>
 
-  <section id="next"><div class="kicker">Next Steps</div><h2 class="sec">Next steps</h2><div class="rule"></div><ol><li>{{...}}</li></ol></section>
-
-  <section id="terms"><div class="kicker">Commitments &amp; Terms</div><h2 class="sec">Client commitment</h2><div class="rule"></div>
-    <ul><li>{{...}}</li></ul>
-    <h3>General terms</h3><ul><li>This proposal is valid for 30 days from the date of issuance.</li></ul>
+  <!-- ============= 14. COMMITMENTS & TERMS ============= -->
+  <section id="terms">
+    <div class="kicker">Commitments &amp; Terms</div>
+    <h2 class="sec">Client commitment</h2>
+    <div class="rule"></div>
+    <ul>
+      <li>{{Designated PM with decision authority}}</li>
+      <li>{{Timely feedback within agreed SLAs}}</li>
+      <li>{{Access to existing systems, data, content as required}}</li>
+      <li>{{Domain expert availability during Discovery}}</li>
+    </ul>
+    <h3>General terms</h3>
+    <ul>
+      <li>This proposal is valid for 30 days from the date of issuance.</li>
+      <li>{{IP transferred to client upon final payment}}</li>
+      <li>{{NDA available on request}}</li>
+      <li>{{Change requests handled via written addendum}}</li>
+    </ul>
   </section>
 
-  <!-- optional appendix (number suppressed via .appendix on the section) -->
+  <!-- ============= 15. APPENDIX · ARCHITECTURE (optional, but recommended) =============
+       Opens with caveat: "starting point for discussion, not a final design".
+       Use the arch-layer, flow, ent-grid, stack, pipeline classes from the
+       gate CSS. NO Mermaid, NO external diagram libs (CSP blocks them).
+       Folded by default in screen view; always expanded in the PDF. -->
   <!--
   <section id="appendix-architecture" class="wide appendix">
-    <div class="kicker">Appendix 1</div><h2 class="sec">Proposed Initial Architecture</h2><div class="rule"></div>
-    ... arch-layer / flow / ent-grid / stack / pipeline blocks ...
+    <div class="kicker">Appendix 1</div>
+    <h2 class="sec">Proposed Initial Architecture</h2>
+    <div class="rule"></div>
+    <p>This appendix outlines a proposed initial architecture for the platform.
+    It is a starting point for discussion, not a final design — the definitive
+    architecture is produced during the Discovery and Specification phase, with
+    {{CLIENT_NAME}}'s input.</p>
+    <h3>System overview</h3>
+    <div class="arch-layer"> ... </div>
+    <h3>Tech stack</h3>
+    <div class="stack"> ... </div>
+    <h3>Security architecture</h3>
+    <div class="tbl-scroll"><table> ... </table></div>
   </section>
   -->
+
+  <!-- ============= 16. NEXT STEPS (ALWAYS THE LAST SECTION) ============= -->
+  <section id="next">
+    <div class="kicker">Next Steps</div>
+    <h2 class="sec">Next steps</h2>
+    <div class="rule"></div>
+    <ol>
+      <li><strong>Sign-off on this proposal</strong> — Review and approve, or send feedback. Globalbit holds capacity for {{N}} days from the date of issuance.</li>
+      <li><strong>Kickoff meeting</strong> — {{Duration}} working session with stakeholders, PM, and CTO to align on goals, constraints, and Discovery scope.</li>
+      <li><strong>Contract signature &amp; advance</strong> — Once aligned, formal SOW is signed and Discovery begins within {{N}} business days.</li>
+      <li><strong>Discovery phase</strong> — {{N-M}} weeks of structured workshops, output is the complete functional specification and refined commercials.</li>
+    </ol>
+  </section>
 
   </div>
  </div>
