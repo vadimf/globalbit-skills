@@ -519,9 +519,9 @@ A proposal can be delivered in TWO formats — pick based on user intent:
 | Output | When to use | How |
 |---|---|---|
 | **Google Doc** (default) | Most clients. Easy to email, comment-on, version. | This skill. See "Google Docs Output" below. |
-| **Encrypted web portal + PDF** at `globalbit.co.il/portal/<client>/proposal` | Confidential / high-value proposals. Password-protected, noindex, downloadable as encrypted PDF, opens-beacon to CRM. | Hand the finished content off to **`create-html-proposal`** (lives in the Globalbit website repo at `.agents/skills/create-html-proposal/`). It owns the HTML fragment conversion, encryption, deploy, and Cloudflare purge. |
+| **Encrypted web portal + PDF** at `globalbit.co.il/portal/<slug>/proposal` | Confidential / high-value proposals. Password-protected, noindex, downloadable as encrypted PDF, inline client comments, EN/HE, opens-beacon to CRM. | Hand the finished content off to **`create-html-proposal`** (lives in the Globalbit website repo at `.agents/skills/create-html-proposal/`). It converts to the HTML fragment, then `npm run publish-proposal -- <slug>` (encrypt → upload to Firebase Storage → register) — **data-only, no route file, no site rebuild**. |
 
-**If the user wants the portal output**: finish the content here first (sections approved, exec summary written), then invoke `create-html-proposal` for the conversion + deploy step. Don't skip the section-by-section review — the portal skill assumes the content is already shaped.
+**If the user wants the portal output**: finish the content here first (sections approved, exec summary written), then invoke `create-html-proposal` for the conversion + publish step. Don't skip the section-by-section review — the portal skill assumes the content is already shaped.
 
 Section-model mapping (Google Doc → portal): §1-7 map 1:1, §8 "Methodology & Approach" → portal `#phases`, §14 "Next Steps" moves to LAST section (after appendix), §15 "Client Commitment" + §16 "General Terms" merge into one `#terms` section, portal adds an optional `#appendix-architecture` between `#terms` and `#next`. The full conversion table is in `create-html-proposal/COMPOSITION.md` in the website repo.
 

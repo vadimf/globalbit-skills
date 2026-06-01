@@ -55,6 +55,43 @@ nothing visually anchors your eye except headings, the section needs structure.
 - `<div class="confidential">Confidential</div>` at the end of cover-inner.
 - Hero `bg-desktop.webp` background is automatic — leave it alone.
 
+**Cover content is parsed by `scripts/record-deployment.mjs`** to populate
+the CRM. Stick to these element shapes or the parser misses fields:
+
+| What | Selector parsed | Goes to |
+|---|---|---|
+| Title | `.cover h1` (first one) | `proposals/<slug>.title` |
+| Eyebrow | `.cover .eyebrow` | `proposals/<slug>.eyebrow` AND the PDF footer label (uppercased) |
+| Reference | First match of `/GB-\d{4}-[A-Z]+-\d{3}/` anywhere in the cover | `proposals/<slug>.reference` |
+
+Concrete shape that parses cleanly:
+
+```html
+<header class="cover">
+  <div class="cover-inner">
+    <div class="eyebrow">Proposal for Website Development & CRM Integration</div>
+    <h1>MTC Digital Platform</h1>
+    <div class="meta">
+      <div><div class="k">Reference</div><div class="v">GB-2026-MTC-001</div></div>
+      <!-- ...other meta fields... -->
+    </div>
+    <div class="confidential">Confidential</div>
+  </div>
+</header>
+```
+
+After this cover, `record-deployment.mjs` writes:
+- `proposals/mtc.title = "MTC Digital Platform"`
+- `proposals/mtc.eyebrow = "Proposal for Website Development & CRM Integration"`
+- `proposals/mtc.reference = "GB-2026-MTC-001"`
+- PDF footer reads `[ PROPOSAL FOR WEBSITE DEVELOPMENT & CRM INTEGRATION ]`
+
+**Things that break parsing:**
+- Multiple `<h1>` in the cover (only the first wins)
+- Reference without the `GB-YYYY-XXX-NNN` shape (parser regex won't match)
+- Eyebrow text wrapped in additional tags (e.g. `<div class="eyebrow"><strong>...</strong></div>` — works) vs missing the `.eyebrow` class entirely (fails)
+- The h1 containing `<em>`/`<strong>` etc. — strips fine, but no HTML entities will be re-encoded; spell special chars carefully
+
 ### Executive summary (`#summary` in dark `.summary` card)
 
 The hardest 4 paragraphs to write in the whole proposal. The dark panel is

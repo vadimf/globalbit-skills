@@ -6,26 +6,38 @@ when, and how the handoff works.
 
 ---
 
-## TL;DR: the two-skill pipeline
+## TL;DR: the three-stage pipeline
 
 ```
-┌────────────────────────────────────┐      ┌──────────────────────────────────────┐
-│  create-proposal                   │  →   │  create-html-proposal                │
-│  (anthropic-skills, global)        │      │  (this skill, in-repo)               │
-│                                    │      │                                      │
-│  WHAT it owns:                     │      │  WHAT it owns:                       │
-│  - Stakeholder analysis            │      │  - HTML fragment formatting          │
-│  - Service-type playbook selection │      │  - Encryption (HTML + PDF)           │
-│  - Writing each section            │      │  - The /portal/<client>/proposal     │
-│    section-by-section with user    │      │    route + gate component            │
-│    review                          │      │  - Build + deploy + Cloudflare purge │
-│  - Bilingual EN/HE                 │      │  - Per-client passphrase             │
-│  - Boilerplate insertion           │      │  - Hand-off (URL + password)         │
-│                                    │      │                                      │
-│  OUTPUT: a Google Doc OR markdown  │      │  OUTPUT: a live encrypted web page   │
-│                                    │      │  + downloadable encrypted PDF        │
-└────────────────────────────────────┘      └──────────────────────────────────────┘
+┌────────────────────────────────────┐      ┌──────────────────────────────────────┐      ┌────────────────────────────────────┐
+│  create-proposal                   │  →   │  create-html-proposal                │  →   │  CRM proposals admin (auto)        │
+│  (anthropic-skills, global)        │      │  (this skill, in-repo)               │      │  (the system, no skill needed)     │
+│                                    │      │                                      │      │                                    │
+│  WHAT it owns:                     │      │  WHAT it owns:                       │      │  WHAT it owns:                     │
+│  - Stakeholder analysis            │      │  - HTML fragment formatting          │      │  - List / detail / versions tab    │
+│  - Service-type playbook selection │      │  - Encryption (HTML + PDF)           │      │  - Lead-picker linking             │
+│  - Writing each section            │      │  - publish-proposal: encrypt →       │      │  - Encryption-aware PDF download   │
+│    section-by-section with user    │      │    upload to Storage → register      │      │  - Opens tab + lead activity feed  │
+│    review                          │      │    (data-only, NO route, NO rebuild) │      │  - Email/Telegram open alerts      │
+│  - Bilingual EN/HE                 │      │  - Per-client passphrase             │      │  - Comments tab + alerts           │
+│  - Boilerplate insertion           │      │  - Hand-off (URL + password)         │      │                                    │
+│                                    │      │  - EN/HE gate i18n (auto RTL)        │      │  HOW it auto-syncs:                │
+│  OUTPUT: a Google Doc OR markdown  │      │  - First-publish CRM registration    │      │  - `publish-proposal.mjs` writes   │
+│                                    │      │                                      │      │    proposals/<slug> doc, deploy-   │
+│                                    │      │  OUTPUT: a live encrypted page       │      │    ments subcoll, Storage payloads │
+│                                    │      │  (one shell + Storage payloads)      │      │  - `trackProposalOpen` function    │
+│                                    │      │  + downloadable encrypted PDF        │      │    writes portal_opens + lead      │
+│                                    │      │  + Firestore record                  │      │    activity on each gate unlock    │
+└────────────────────────────────────┘      └──────────────────────────────────────┘      └────────────────────────────────────┘
 ```
+
+The CRM stage is **not a skill** — no separate prompt to invoke, no
+sub-agent to run. It's the consumer side of what `create-html-proposal`
+produces. Every deploy auto-registers in the CRM via the post-deploy
+snapshot script; opens auto-log via the trackProposalOpen Cloud Function.
+The skill's only responsibility wrt the CRM is **shaping the cover so the
+parser picks up title/eyebrow/reference correctly** (see WRITING-GUIDE.md
+"Cover page" — there's a parser-discipline subsection).
 
 **Rule of thumb**:
 - "Help me write a proposal" → **`create-proposal`** first.
