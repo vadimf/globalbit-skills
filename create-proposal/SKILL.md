@@ -331,6 +331,15 @@ The proposal must **serve two masters simultaneously**:
 - **Hebrew**: For Israeli domestic clients as the default
 - The language applies to **custom sections only**. Boilerplate sections exist in both languages — use the matching version.
 
+> **Hebrew copy → use the `globalbit-hebrew` skill.** Whenever you write or rewrite Hebrew
+> for any custom section of a proposal, load the `globalbit-hebrew` skill and follow it. It is
+> the authoritative standard for Globalbit's Hebrew **language** — register, lexicon, sentence
+> shape, code-switching with English terms, typography (em-dash, geresh `׳`, gershayim `״`,
+> currency), the affirmative-only positioning rule (state what the offer IS, never what it is
+> NOT), and the ban on the `המשמעות העסקית:` callout. This `create-proposal` skill owns the
+> document **structure** (16-section format, templates, commercial logic); `globalbit-hebrew`
+> owns how every Hebrew sentence reads. The two compose: structure here, language there.
+
 ---
 
 ## Company Profile Adaptation Rule

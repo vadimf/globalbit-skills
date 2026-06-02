@@ -49,6 +49,7 @@ Skills are structured instruction sets that give AI coding agents domain-specifi
 | Skill | Description |
 |-------|-------------|
 | **[create-proposal](./create-proposal)** | Create high-conversion, executive-level proposals for Globalbit software services (16-section format) |
+| **[globalbit-hebrew](./globalbit-hebrew)** | Globalbit's Hebrew writing standard — register, lexicon, sentence shape, code-switching, and typography for client-facing proposals and documents. Pairs with `create-proposal` (structure there, language here) |
 | **[globalbit-document](./globalbit-document)** | Work with Google Docs using the Globalbit template — create, populate, and style professional documents via the Docs API |
 
 
