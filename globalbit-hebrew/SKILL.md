@@ -11,7 +11,21 @@ Defer document structure, section ordering, and commercial templates to the `cre
 
 ---
 
-## 1. Register (the most important rule)
+## North star — clarity, completeness, conviction
+
+Every sentence serves one goal: **the reader finishes the document and wants to start working with Globalbit immediately.** The target reaction is the decision-maker putting the proposal down and reaching for the phone — `"בוא נתחיל לעבוד"`.
+
+Three demands flow from that goal, and they outrank every stylistic rule below:
+
+1. **Clarity above all.** The Hebrew must be unmistakable. A senior reader grasps each sentence on the first pass, with zero re-reading.
+2. **The reader never guesses.** Every claim, number, scope item, dependency, and next step is stated explicitly and in full. If the reader has to infer what you meant, fill a gap, or ask "what does this include?" — the copy has failed. Spell it out.
+3. **Minimum cognitive load.** The reader is a busy executive. Each paragraph should cost as little mental effort as possible: concrete instead of abstract, one idea per sentence, no ambiguity to resolve, no unexplained jargon, no dangling reference. Lowering the reader's effort *is* the job.
+
+Clarity and persuasion are not in tension — they are the same thing. A proposal that is effortless to read is the most convincing proposal, because confusion is the enemy of "yes". Whenever a stylistic choice and clarity conflict, clarity wins.
+
+---
+
+## 1. Register
 
 Globalbit Hebrew is **professional business Hebrew** (`עברית עסקית-מקצועית`) — the register of a senior consultant briefing an executive committee. It is:
 
@@ -88,7 +102,7 @@ Example:
 
 ### 4.2 Sentence length
 
-- **Opening paragraphs (תקציר מנהלים, רקע):** long periodic sentences — 25–40 words each, with embedded clauses. They build authority.
+- **Opening paragraphs (תקציר מנהלים, רקע):** long periodic sentences — 25–40 words each, with embedded clauses. They build authority — but only when they still read in a single pass. If a long sentence forces the reader to backtrack, break it. Clarity always outranks cadence.
 - **Capability bullets:** short — 8–15 words. Each bullet states one thing.
 - **Commercial / legal sections:** medium, structured. Each obligation gets its own sentence.
 
@@ -275,20 +289,23 @@ Severity and probability are integers 1–5; risk level is either the product (n
 
 ## 12. Self-check before delivering Hebrew copy
 
-Run this checklist on every paragraph:
+Run this checklist on every paragraph. The first three are the highest priority — they serve the north star.
 
-1. Could a friend send this in a WhatsApp message? If yes — too informal. Fix.
-2. Could it appear in a court ruling? If yes — too legal. Fix.
-3. Are there exclamation marks, emoji, or `מאוד`/`ביותר`? Remove.
-4. Are technical English terms inline (uppercase, untransliterated)? Good.
-5. Are em-dashes `—` (not hyphens) used for emphasis and definition? Fix if wrong.
-6. Is `מע״מ` written with `״` (gershayim), not `"`? Fix.
-7. Does every meaningful capability state its business value inside the sentence (via `—` or `כך ש-`), with no bolded `המשמעות העסקית:` label line? Fix if a callout slipped in.
-8. Did I address the reader as `אתה`/`אתם` anywhere? Replace with company name or third person.
-9. Is every estimate hedged (`כ-`, `מוערך`, `בטווח של`) and every commitment flat?
-10. Did I avoid every "not X — but Y" construction (`אינו`, `לא רק ... אלא`, `במקום X`, `ולא Y`) and state only what the offer IS?
+1. **Does the reader have to guess anything?** Every number, inclusion, exclusion, dependency, and next step stated explicitly and in full? If a reader could ask "what does this include?" or "what happens next?", answer it in the text. Nothing left to infer.
+2. **Does every sentence read in a single pass?** No re-reading, no untangling. If a sentence needs a second read to parse, split or simplify it.
+3. **Is the cognitive load minimal?** One idea per sentence, concrete over abstract, and every term the reader might not know either translated or paired with its Hebrew. The reader's effort is the thing you are minimising.
+4. Could a friend send this in a WhatsApp message? If yes — too informal. Fix.
+5. Could it appear in a court ruling? If yes — too legal. Fix.
+6. Are there exclamation marks, emoji, or `מאוד`/`ביותר`? Remove.
+7. Are technical English terms inline (uppercase, untransliterated)? Good.
+8. Are em-dashes `—` (not hyphens) used for emphasis and definition? Fix if wrong.
+9. Is `מע״מ` written with `״` (gershayim), not `"`? Fix.
+10. Does every meaningful capability state its business value inside the sentence (via `—` or `כך ש-`), with no bolded `המשמעות העסקית:` label line?
+11. Did I address the reader as `אתה`/`אתם` anywhere? Replace with company name or third person.
+12. Is every estimate hedged (`כ-`, `מוערך`, `בטווח של`) and every commitment flat?
+13. Did I avoid every "not X — but Y" construction (`אינו`, `לא רק ... אלא`, `במקום X`, `ולא Y`) and state only what the offer IS?
 
-If all ten pass, the paragraph is in voice.
+If all thirteen pass, the paragraph is clear, complete, and in voice.
 
 ---
 
