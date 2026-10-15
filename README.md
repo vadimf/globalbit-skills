@@ -16,6 +16,7 @@ Skills are structured instruction sets that give AI coding agents domain-specifi
 | **[tailwind-patterns](./tailwind-patterns)** | Production-ready Tailwind CSS patterns for responsive layouts, cards, navigation, forms, and buttons |
 | **[clone-website](./clone-website)** | Clone/replicate websites into production-ready Next.js 16 code |
 | **[web-design-guidelines](./web-design-guidelines)** | Review UI code against Web Interface Guidelines for best practices |
+| **[globalbit-design-system](./globalbit-design-system)** | Canonical Globalbit brand tokens + components — the single source of truth agents apply for on-brand UI, and sync to Claude Design via `/design-sync` |
 
 ### Performance & Accessibility
 | Skill | Description |
